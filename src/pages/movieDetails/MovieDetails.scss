@@ -1,5 +1,6 @@
+@use "../../scss/" as *;
 .large-container{
-    background: var(--dark-black);
+    background: $dark-black;
     position: relative;
     .poster__about__box{
         position: absolute;
@@ -26,7 +27,7 @@
                 height: 43rem;
                 margin: 0 3rem;
                 border-radius: 1rem;
-                border: 1px solid var(--grey);
+                border: 1px solid $grey;
                 img{
                     border-radius: 1rem;
                 }
@@ -50,7 +51,7 @@
                         padding:.5rem 2rem;
                         font-size: 1.4rem;
                         border-radius: 2rem;
-                        border: 2px solid var(--white);
+                        border: 2px solid $white;
 
                     }
                 }

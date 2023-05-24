@@ -1,8 +1,9 @@
+@use "../../scss/" as *;
 .swiper {
     margin-bottom: 3rem;
 
     .swiper-pagination-bullet {
-        background: var(--white);
+        background: $white;
     }
 }
 
@@ -52,7 +53,7 @@
             width: 30rem;
             height: 40rem;
             border-radius: 1rem;
-            border: 1px solid var(--grey);
+            border: 1px solid $grey;
 
             img {
                 border-radius: 1rem;

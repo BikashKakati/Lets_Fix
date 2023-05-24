@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,500;1,700&display=swap');
+@use "./scss/" as *;
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,500;1,700&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -9,15 +10,6 @@
 
 }
 
-:root {
-    --dark-black: #000;
-    --soft-black: #333;
-    --white: #fff;
-    --red: #ff2c2c;
-    --dark-red: #cc1111;
-    --grey: #ccc;
-    --transition: 0.4s ease-in-out;
-}
 
 
 @mixin mobile {
@@ -40,8 +32,8 @@ html {
 
 
 body {
-    background: var(--dark-black);
-    color: var(--white);
+    background: $dark-black;
+    color: $white;
     font-weight: 400;
     font-size: 2rem;
 }
@@ -55,16 +47,16 @@ textarea {
 
 button {
     padding: .5rem 1.5rem;
-    color: var(--white);
+    color: $white;
     background: transparent;
-    border: 2px solid var(--white);
+    border: 2px solid $white;
     text-transform: uppercase;
     border-radius: 2rem;
     font-weight: 500;
 
     &:hover {
-        color: var(--red);
-        background: var(--white);
+        color: $red;
+        background: $red;
     }
 }
 img{

@@ -1,3 +1,4 @@
+@use "../../scss/" as *;
 .card-box {
     width: 20rem;
     height: 28rem;
@@ -5,7 +6,7 @@
     display: inline-block;
     cursor: pointer;
     border-radius: 1rem;
-    border: 1px solid var(--grey);
+    border: 1px solid $grey;
     margin: 1rem;
     transition: transform 0.5s;
     z-index: 3;
@@ -29,7 +30,7 @@
         padding: 1rem;
         justify-content: flex-end;
         align-items: flex-start;
-        color: var(--white);
+        color: $white;
         opacity: 0;
         transition: opacity 0.5s;
 
