@@ -1,0 +1,77 @@
+.swiper {
+    margin-bottom: 3rem;
+
+    .swiper-pagination-bullet {
+        background: var(--white);
+    }
+}
+
+
+.poster-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .poster-details {
+        position: absolute;
+        padding: 14rem 10rem;
+        display: flex;
+        top: 0;
+        left: 0;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 1));
+
+
+
+        .poster-about {
+            width: 65%;
+
+            h1,
+            p {
+                margin: 1rem 0;
+            }
+
+            span {
+                font-size: 2rem;
+                margin-right: 2rem;
+
+                i {
+                    color: yellow;
+                }
+            }
+
+            button {
+                font-size: 2rem;
+            }
+
+        }
+
+        .poster-card {
+            width: 30rem;
+            height: 40rem;
+            border-radius: 1rem;
+            border: 1px solid var(--grey);
+
+            img {
+                border-radius: 1rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px){
+    .swiper{
+        .swiper-pagination-bullet {
+            width: .6rem;
+            height: .6rem;
+        }
+
+    }
+    .poster-container{
+        .poster-details{
+            display: none;
+        }
+    }
+}
