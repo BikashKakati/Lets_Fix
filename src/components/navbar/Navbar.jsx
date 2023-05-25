@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import logo from '../../assets/Movieslogo.png'
 import './Navbar.scss';
@@ -18,11 +18,13 @@ const Navbar = () => {
     //     </div>
     // </div>
     <header className="navbar">
-      <div className="sm-container">
-        <div className="left-box">
-          <Link to="/"><img src={logo} /><h1 className="logo"><span className="logo-firstLetter">Lets</span>Fix</h1></Link>
-
-        </div>
+      <div className="inner-container">
+        <Link to="/">
+          <div className="left-box">
+            <img src={logo} className='logo-img' />
+            <h1 className="logo"><span className="logo-colorWhite">Lets</span>Fix</h1>
+          </div>
+        </Link>
         <div className="input-box">
 
           <i className="fa fa-search" aria-hidden="true" onClick={() => { menuOn && setMenuOn(!menuOn); setSearchOn(!searchOn); }}></i>
