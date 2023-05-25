@@ -33,7 +33,7 @@ const MovieList = () => {
             <div className="inner-container">
                 {
 
-                    getFilterData?.length !== 0 ?
+                    getFilterData?
 
                         (getFilterData?.map((movie, index) => (
                             isLoading ?

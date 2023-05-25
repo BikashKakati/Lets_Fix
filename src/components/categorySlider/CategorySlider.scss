@@ -1,13 +1,14 @@
+@use '../../scss/' as *;
 .swiper {
     .swiper-slide{
         width: 15%;
     }
     .swiper-button-prev, .swiper-button-next{
-        color: var(--white);
+        color: $white;
     }
 
     .swiper-pagination-bullet {
-        background: var(--white);
+        background: $white;
     }
 }
 
@@ -23,7 +24,7 @@
         // height: 30rem;
         position: relative;
         border-radius: 1rem;
-        border: 1px solid var(--grey);
+        border: 1px solid $grey;
         
         img {
             border-radius: 1rem;
@@ -38,7 +39,7 @@
             padding: 1rem;
             justify-content: flex-end;
             align-items: flex-start;
-            color: var(--white);
+            color: $white;
             opacity: 0;
             transition: var(--transition);
             span{
@@ -60,7 +61,7 @@
 }
 
 
-@media screen and (max-width:480px){
+@media(max-width:600px){
     .swiper{
         .swiper-slide{
             width: 30%;

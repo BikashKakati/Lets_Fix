@@ -1,86 +1,162 @@
+
+@use "../../scss/" as *;
+
 .navbar {
-    max-width: 100vw;
-    background: var(--dark-black);
+    z-index: 100;
     position: sticky;
     top: 0;
     left: 0;
-    padding: 0 2rem;
-    z-index: 100;
+    width: 100vw;
+    background: $transparent;
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.1);
 
-    .sm-container {
+    .inner-container {
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 0;
+        width: 100%;
+        padding: 0.8rem 4rem;
 
-        ul {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            li {
-                padding: 1.5rem 2rem;
-            }
+        @include mobile {
+            padding: 0.8rem 3rem;
         }
+    }
+}
 
-        button {
+.left-box {
+    padding: .5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    .logo-img {
+        width: 4rem;
+    }
+
+    .logo {
+        font-size: 4rem;
+        color: $red;
+
+        .logo-colorWhite {
+            padding: .5rem;
+            color: $white;
+        }
+    }
+
+}
+
+.input-box {
+    width: 40rem;
+    min-height: 3rem;
+    margin: 0 3rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    @include mobile {
+        position: static;
+        margin: 0 1.5rem;
+    }
+
+    .fa.fa-search {
+        color: $white;
+        position: absolute;
+        left: 1rem;
+        padding: 0 1rem;
+
+        @include mobile  {
+            position: static;
+            margin: auto;
             font-size: 2rem;
         }
     }
-}
 
-a {
-    color: var(--white);
-    font-size: 1.6rem;
+    .input-area {
+        width: 100%;
+        padding: 1.3rem 4.5rem;
+        font-size: 1.4rem;
+        background: $soft-black;
+        border-radius: 4rem;
+        color: $white;
 
-    &:hover {
-        color: var(--red);
-    }
-
-    span {
-        font-size: 3rem;
-        font-weight: 600;
-        color: var(--dark-red);
-        text-transform: uppercase;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        &:hover {
-            color: var(--red);
-        }
-
-        img {
-            width: 4rem;
+        @include mobile  {
+            padding: 1.5rem 4.5rem;
+            z-index: 10;
+            position: absolute;
+            width: 95%;
+            right: -100%;
+            bottom: -1rem;
+            background: $soft-black;
+            transform: translateY(100%);
+            transition: right $transition;
         }
     }
+
+    .input-area::placeholder {
+        color: $white;
+    }
+
+    .input-area.on {
+        @include mobile  {
+            right: 1rem;
+        }
+    }
 }
 
-@media screen and (max-width:480px) {
-    .navbar {
-        .sm-container {
-            a {
-                display: block;
-                margin: auto;
 
-                span {
-                    padding: 1.5rem 2rem;
-                }
-            }
+.categories {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
 
-            ul {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                background: var(--dark-black);
-               li{
-                padding: 2.3rem 1.8;
-                a{
-                    font-size: 2rem;
-                }
-               }
-            }
+    @include tablet {
+        z-index: 10;
+        padding: 0;
+        background: $transparent;
+        position: absolute;
+        right: -100%;
+        bottom: 0;
+        transform: translateY(100%);
+        min-height: 10rem;
+        width: 100%;
+        flex-direction: column;
+        font-size: 1.8rem;
+        transition: all 0.5s ease-in-out;
+        overflow: hidden;
+    }
+
+    .cat-type {
+        margin-right: 5rem;
+        a{
+            color: $red;
         }
+
+        @include tablet {
+            text-align: center;
+            margin: 0;
+            padding: 2rem 0;
+            width: 100%;
+        }
+    }
+}
+
+.categories.on {
+    @include tablet {
+        right: 0;
+    }
+}
+
+
+.menu-btn {
+    background: $dark-black;
+    color: $white;
+    font-size: 3rem;
+    padding: .5rem 1rem;
+    margin-left: 1rem;
+    display: none;
+
+    @include tablet {
+        display: block;
     }
 }
