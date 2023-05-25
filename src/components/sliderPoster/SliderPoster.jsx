@@ -27,20 +27,35 @@ const SliderPoster = () => {
 
 
     return (
-
-        isLoading ?
-        <div className="swiper">
-            <SkeletonTheme color='#202020' highlightColor='#444' >
-             <Skeleton height={500} />
-          </SkeletonTheme>
+        <div className="large-container">
+            {
+                isLoading ?
+            <div className="swiper">
+                <SkeletonTheme color='#202020' highlightColor='#444' >
+                 <Skeleton height={500} />
+              </SkeletonTheme>
+            </div>
+            :
+            <SlidingCarousel movieList={movieList}/>
+            }
         </div>
-        :
+
         
+
+
+
+        
+    
+    )
+}
+
+const SlidingCarousel = ({movieList}) =>{
+    return(
         <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             slidesPerView={1}
             speed={2}
-            autoplay={{ delay: 3000 }}
+            // autoplay={{ delay: 3000 }}
             loop
             pagination
         >
@@ -56,7 +71,7 @@ const SliderPoster = () => {
                                     <span> {movie ? movie.release_date : ""} </span>
                                     <span> {movie ? movie.vote_average : ""} <i className='fa-solid fa-star'></i> </span>
                                     <p>{movie ? movie.overview : ""}</p>
-                                    <Link to={`/movie/${movie.id}`}><button>Get Details</button></Link>
+                                    <Link to={`/movie/${movie.id}`}><button className='btn'>Get Details</button></Link>
                                 </div>
                                 <div className="poster-card">
                                     <Link to={`/movie/${movie.id}`}><img src={`https://image.tmdb.org/t/p/original${movie && movie.poster_path}`} /></Link>
@@ -69,6 +84,7 @@ const SliderPoster = () => {
                 ))
             }
         </Swiper>
+
     )
 }
 

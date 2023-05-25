@@ -23,7 +23,7 @@ const CategorySlider = ({ type }) => {
         <div className="sm-container">
             <div className="title-box">
                 <h4 className='title'>{type.toUpperCase()}</h4>
-                <Link to={`/movies/${type ? type : "top_rated"} `}><button>  View More </button></Link>
+                <Link to={`/movies/${type ? type : "top_rated"} `}><button className='btn'>  View More </button></Link>
 
             </div>
             <Swiper
