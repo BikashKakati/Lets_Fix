@@ -8,19 +8,12 @@
     left: 0;
     width: 100vw;
     background: $transparent;
-    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.1);
 
-    .inner-container {
+    .wrapper {
         position: relative;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 100%;
-        padding: 0.8rem 4rem;
-
-        @include mobile {
-            padding: 0.8rem 3rem;
-        }
     }
 }
 
@@ -62,8 +55,7 @@
     .fa.fa-search {
         color: $white;
         position: absolute;
-        left: 1rem;
-        padding: 0 1rem;
+        left: 2rem;
 
         @include mobile  {
             position: static;
@@ -113,7 +105,7 @@
     @include tablet {
         z-index: 10;
         padding: 0;
-        background: $transparent;
+        background: $soft-black;
         position: absolute;
         right: -100%;
         bottom: 0;
@@ -129,7 +121,9 @@
     .cat-type {
         margin-right: 5rem;
         a{
-            color: $red;
+            &:hover{
+                color: $red;
+            }
         }
 
         @include tablet {

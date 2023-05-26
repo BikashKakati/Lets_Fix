@@ -1,9 +1,12 @@
 @use '../../scss/' as *;
+
 .swiper {
-    .swiper-slide{
+    .swiper-slide {
         width: 15%;
     }
-    .swiper-button-prev, .swiper-button-next{
+
+    .swiper-button-prev,
+    .swiper-button-next {
         color: $white;
     }
 
@@ -12,58 +15,67 @@
     }
 }
 
-.sm-container{
+.cat-slider {
+
     margin-bottom: 6rem;
-    .title-box{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 2rem;
-    }
-    .cat-card-box {
-        // height: 30rem;
-        position: relative;
-        border-radius: 1rem;
-        border: 1px solid $grey;
-        
-        img {
-            border-radius: 1rem;
-        }
-        
-        .cat-card-about {
-            position: absolute;
-            bottom: 0;
-            height: 100%;
+    .wrapper {
+
+        .title-box {
             display: flex;
-            flex-direction: column;
-            padding: 1rem;
-            justify-content: flex-end;
-            align-items: flex-start;
-            color: $white;
-            opacity: 0;
-            transition: var(--transition);
-            span{
-                font-size: 1.5rem;
-                margin-bottom: 1rem;
-                i{
-                    color: yellow;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .cat-card-box {
+            // height: 30rem;
+            position: relative;
+            border-radius: 1rem;
+            border: 1px solid $grey;
+
+            img {
+                border-radius: 1rem;
+            }
+
+            .cat-card-about {
+                position: absolute;
+                bottom: 0;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                padding: 1rem;
+                justify-content: flex-end;
+                align-items: flex-start;
+                color: $white;
+                opacity: 0;
+                transition: var(--transition);
+
+                span {
+                    font-size: 1.5rem;
+                    margin-bottom: 1rem;
+
+                    i {
+                        color: yellow;
+                    }
                 }
-            }
-            p{
-                font-size: 1.2rem;
-            }
-            &:hover{
-                opacity: 1;
-                background: linear-gradient( rgba(0, 0, 0,.6) , rgba(0,0,0,.8 ));
+
+                p {
+                    font-size: 1.2rem;
+                }
+
+                &:hover {
+                    opacity: 1;
+                    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .8));
+                }
             }
         }
     }
 }
 
 
-@media(max-width:600px){
-    .swiper{
-        .swiper-slide{
+@media(max-width:600px) {
+    .swiper {
+        .swiper-slide {
             width: 30%;
         }
     }
