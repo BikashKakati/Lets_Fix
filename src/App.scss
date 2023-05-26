@@ -88,7 +88,9 @@ h4 {
 .large-container {
     max-width: 100vw;
 }
-.sm-container{
-    max-width: 124rem;
+.wrapper{
+    width: 100%;
+    max-width: 120rem;
     margin: 0 auto;
+    padding: 0 2rem;
 }

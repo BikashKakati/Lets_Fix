@@ -18,13 +18,14 @@ const Navbar = () => {
     //     </div>
     // </div>
     <header className="navbar">
-      <div className="inner-container">
+      <div className="wrapper">
         <Link to="/">
           <div className="left-box">
             <img src={logo} className='logo-img' />
             <h1 className="logo"><span className="logo-colorWhite">Lets</span>Fix</h1>
           </div>
         </Link>
+        
         <div className="input-box">
 
           <i className="fa fa-search" aria-hidden="true" onClick={() => { menuOn && setMenuOn(!menuOn); setSearchOn(!searchOn); }}></i>
