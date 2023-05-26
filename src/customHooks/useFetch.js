@@ -1,6 +1,6 @@
 // const API_URL = "https://api.themoviedb.org/3/movie/popular?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US"
 
-import axios from "axios";
+
 import { useState, useEffect } from "react";
 
 const useFetch = (dataUrl) =>{
@@ -25,7 +25,7 @@ const useFetch = (dataUrl) =>{
             setData([]);
           }
         }finally{
-          subscribe && setTimeout(() => setIsLoading(false),2000);
+          subscribe && setIsLoading(false);
         }
      }
      fetchData(`https://api.themoviedb.org/3/movie/${dataUrl}?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`);

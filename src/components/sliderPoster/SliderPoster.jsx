@@ -16,41 +16,33 @@ import useFetch from '../../customHooks/useFetch'
 
 const SliderPoster = () => {
 
-
-    const [movieList, setMovieList] = useState([]);
-    const {data, isLoading, error} = useFetch("popular");
-
-    useEffect(() =>{
-        window.scrollTo(0, 0);
-        setMovieList(data?.results);
-    },[data]);
-
+    const { data, isLoading} = useFetch("popular");
 
     return (
         <div className="large-container">
             {
                 isLoading ?
-            <div className="swiper">
-                <SkeletonTheme color='#202020' highlightColor='#444' >
-                 <Skeleton height={500} />
-              </SkeletonTheme>
-            </div>
-            :
-            <SlidingCarousel movieList={movieList}/>
+                    <div className="swiper">
+                        <SkeletonTheme color='#202020' highlightColor='#444' >
+                            <Skeleton height={500} />
+                        </SkeletonTheme>
+                    </div>
+                    :
+                    <SlidingCarousel movieList={data?.results} />
             }
         </div>
 
-        
 
 
 
-        
-    
+
+
+
     )
 }
 
-const SlidingCarousel = ({movieList}) =>{
-    return(
+const SlidingCarousel = ({ movieList }) => {
+    return (
         <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             slidesPerView={1}
@@ -61,23 +53,25 @@ const SlidingCarousel = ({movieList}) =>{
         >
             {
                 movieList?.map((movie, index) => (
-                    <SwiperSlide key={index}>
+                    <SwiperSlide key={movie.id}>
                         <div className="poster-container">
+                            <Link to={`/movie/${movie.id}`}>
 
-                            <img src={`https://image.tmdb.org/t/p/original${movie && movie.backdrop_path}`} />
-                            <div className="poster-details">
-                                <div className="poster-about">
-                                    <h1>{movie ? movie.original_title : ""}</h1>
-                                    <span> {movie ? movie.release_date : ""} </span>
-                                    <span> {movie ? movie.vote_average : ""} <i className='fa-solid fa-star'></i> </span>
-                                    <p>{movie ? movie.overview : ""}</p>
-                                    <Link to={`/movie/${movie.id}`}><button className='btn'>Get Details</button></Link>
+                                <img src={`https://image.tmdb.org/t/p/original${movie && movie.backdrop_path}`} />
+                                <div className="poster-details">
+                                    <div className="poster-about">
+                                        <h1>{movie ? movie.original_title : ""}</h1>
+                                        <span> {movie ? movie.release_date : ""} </span>
+                                        <span> {movie ? movie.vote_average : ""} <i className='fa-solid fa-star'></i> </span>
+                                        <p>{movie ? movie.overview : ""}</p>
+                                        <Link to={`/movie/${movie.id}`}><button className='btn'>Get Details</button></Link>
+                                    </div>
+                                    <div className="poster-card">
+                                        <Link to={`/movie/${movie.id}`}><img src={`https://image.tmdb.org/t/p/original${movie && movie.poster_path}`} /></Link>
+                                    </div>
                                 </div>
-                                <div className="poster-card">
-                                    <Link to={`/movie/${movie.id}`}><img src={`https://image.tmdb.org/t/p/original${movie && movie.poster_path}`} /></Link>
-                                </div>
-                            </div>
 
+                            </Link>
                         </div>
 
                     </SwiperSlide>
