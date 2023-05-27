@@ -8,14 +8,14 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 
 import Cards from '../../components/cards/Cards';
-import './MovieList.scss'
+import './MoviesExplore.scss'
 import useFetch from '../../customHooks/useFetch';
 const MovieList = () => {
 
     const [movieList, setMovieList] = useState([]);
     const {render,inputData} = useSearchBox();
     const { type } = useParams();
-    const {data, isLoading, error} = useFetch(type ? type : "popular");
+    const {data, isLoading, error} = useFetch(`movie/${type ? type : popular}`);
 
     useEffect(() =>{
         window.scrollTo(0, 0);

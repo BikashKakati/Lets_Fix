@@ -13,7 +13,7 @@ import useFetch from '../../customHooks/useFetch';
 const CategorySlider = ({ type }) => {
 
     const [movieList, setMovieList] = useState([]);
-    const {data, isLoading, error} = useFetch(type);
+    const {data, isLoading, error} = useFetch(`/movie/${type}`);
 
     useEffect(() =>{
         setMovieList(data?.results);

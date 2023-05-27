@@ -24,8 +24,8 @@ html {
 body {
     background: $dark-black;
     color: $white;
-    font-weight: 600;
-    font-size: 1.6rem;
+    font-weight: 500;
+    font-size: 1.4rem;
 }
 
 input,
@@ -93,4 +93,33 @@ h4 {
     max-width: 120rem;
     margin: 0 auto;
     padding: 0 2rem;
+}
+
+.skeleton {
+    position: relative;
+    overflow: hidden;
+    background-color: $soft-black;
+    &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: translateX(-100%);
+        background-image: linear-gradient(
+            90deg,
+            rgba(#555, 0) 0,
+            rgba(#555, 0.2) 20%,
+            rgba(#555, 0.5) 60%,
+            rgba(#555, 0)
+        );
+        animation: shimmer 2s infinite;
+        content: "";
+    }
+
+    @keyframes shimmer {
+        100% {
+            transform: translateX(100%);
+        }
+    }
 }

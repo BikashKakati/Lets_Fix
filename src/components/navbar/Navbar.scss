@@ -58,9 +58,9 @@
         left: 2rem;
 
         @include mobile  {
-            position: static;
-            margin: auto;
             font-size: 2rem;
+            left: auto;
+            right: 8rem;
         }
     }
 
@@ -115,7 +115,6 @@
         flex-direction: column;
         font-size: 1.8rem;
         transition: all 0.5s ease-in-out;
-        overflow: hidden;
     }
 
     .cat-type {
@@ -143,7 +142,7 @@
 
 
 .menu-btn {
-    background: $dark-black;
+    background: unset;
     color: $white;
     font-size: 3rem;
     padding: .5rem 1rem;
