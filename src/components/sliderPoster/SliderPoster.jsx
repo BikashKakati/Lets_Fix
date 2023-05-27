@@ -16,7 +16,7 @@ import useFetch from '../../customHooks/useFetch'
 
 const SliderPoster = () => {
 
-    const { data, isLoading} = useFetch("popular");
+    const { data, isLoading} = useFetch("/movie/popular");
 
     return (
         <div className="large-container">
