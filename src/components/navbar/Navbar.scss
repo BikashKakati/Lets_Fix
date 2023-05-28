@@ -2,8 +2,8 @@
 @use "../../scss/" as *;
 
 .navbar {
-    z-index: 100;
-    position: sticky;
+    z-index: 10;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
