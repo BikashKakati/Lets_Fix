@@ -1,9 +1,10 @@
+@use "../../scss/" as *;
 .pageNotFound {
     height: 700px;
     padding-top: 200px;
     .wrapper{
         text-align: center;
-        color: var(--black-light);
+        color: $soft-black;
         display: flex;
         flex-direction: column;
         .bigText {

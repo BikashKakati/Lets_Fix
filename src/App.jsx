@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Navbar from './components/navbar/Navbar'
 import PageNotFound from './pages/404/PageNotFound'
 import SearchResults from './pages/searchResults/SearchResults'
+import Footer from './components/footer/Footer'
 
 const Home = lazy(() => import('./pages/home/Home'))
 const MovieExplore = lazy(() => import('./pages/moviesExplore/MoviesExplore'))
@@ -27,6 +28,7 @@ const App = () => {
 
       </Routes>
       </Suspense>
+      <Footer/>
     </Router>
     </>
 
