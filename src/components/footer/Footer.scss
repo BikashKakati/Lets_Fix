@@ -1,0 +1,68 @@
+@use "../../scss/" as *;
+
+.footer {
+    background:$soft-black;
+    padding: 5rem 0;
+    color: $white;
+    position: relative;
+    .wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .menuItems {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        margin-bottom: 15rem;
+        @include tablet {
+            margin-bottom: 5rem;
+            gap: 1.5rem;
+        }
+        .menuItem {
+            transition: all $transition;
+            cursor: pointer;
+            font-size: 1.6rem;
+            &:hover {
+                color: $red;
+            }
+            @include mobile{
+                font-size: 1.4rem;
+            }
+        }
+    }
+    .infoText {
+        font-size: 1.4rem;
+        line-height: 2rem;
+        opacity: 0.5;
+        text-align: center;
+        max-width: 80rem;
+        margin-bottom: 3rem;
+        @include tablet {
+            margin-bottom: 2rem;
+        }
+    }
+    .socialIcons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        .icon {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            background: grey;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all $transition;
+            &:hover {
+                box-shadow: 0 0 0.625em $red;
+                color: $red;
+            }
+        }
+    }
+}
