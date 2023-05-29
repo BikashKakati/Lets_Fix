@@ -1,10 +1,13 @@
 @use "../../scss/" as *;
-.slider-poster{
+
+.slider-poster {
     width: 100vw;
     margin-bottom: 10rem;
-    @include mobile{
+
+    @include mobile {
 
         padding: 0 2rem;
+        margin-top: 6rem;
     }
 }
 
@@ -15,6 +18,7 @@
     height: 100%;
 
     .poster-details {
+        cursor: pointer;
         position: absolute;
         gap: 2rem;
         display: flex;
@@ -25,72 +29,86 @@
         height: 100%;
         width: 100%;
         background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 1));
-        @include tablet{
+
+        @include tablet {
             gap: 0;
         }
-        @include mobile{
+
+        @include mobile {
             display: none;
         }
-         
+
         .poster-about {
             width: 60%;
 
-             .poster-title{
+            .poster-title {
                 font-size: 5.5rem;
                 font-weight: 400;
-             }
-             .poster-relDate{
+            }
+
+            .poster-relDate {
                 font-size: 2.5rem;
                 font-weight: 400;
                 margin-right: 2rem;
-             }
-             .poster-rate{
+            }
+
+            .poster-rate {
                 font-size: 2.5rem;
                 font-weight: 600;
-             }
-             .poster-overview{
+            }
+
+            .poster-overview {
                 font-weight: 400;
                 margin-top: 1rem;
-             }
-             .btn{
+            }
+
+            .btn {
                 margin-top: 1.5rem;
                 font-size: 1.8rem;
-             }
-            @include tablet{
-                .poster-title{
+            }
+
+            @include tablet {
+                .poster-title {
                     font-size: 4.5rem;
                     font-weight: 400;
-                 }
-                 .btn{
+                }
+
+                .btn {
                     font-size: 1.3rem;
-                 }
+                }
 
             }
 
         }
 
         .poster-card {
+            position: relative;
             max-width: 30rem;
             height: 43rem;
             margin-left: 2rem;
             border-radius: 1rem;
             border: 1px solid $grey;
-            @include tablet{
-              height: 28rem;
-            }
-            @include mobile{
-                display: none;
-            }
+            aspect-ratio: 1 / 1.5;
 
             img {
                 border-radius: 1rem;
             }
+
+            @include tablet {
+                height: 28rem;
+            }
+
+            @include mobile {
+                display: none;
+            }
+
+
         }
     }
 }
 
-@include mobile{
-    .swiper{
+@include mobile {
+    .swiper {
         .swiper-pagination-bullet {
             width: .6rem;
             height: .6rem;
@@ -98,52 +116,62 @@
     }
 }
 
-.skl-container{
+.skl-container {
     width: 100%;
     height: 78rem;
     gap: 4rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    @include tablet{
+
+    @include tablet {
         height: 40rem;
     }
-    @include mobile{
+
+    @include mobile {
         height: 25rem;
     }
-    .skl-about{
+
+    .skl-about {
         width: 62%;
         display: flex;
         flex-direction: column;
         gap: 2rem;
-        @include tablet{
+
+        @include tablet {
             width: 50%;
         }
-        @include mobile{
+
+        @include mobile {
             display: none;
         }
 
-        .skl-title{
+        .skl-title {
             height: 6rem;
             width: 80%;
         }
-        .skl-rate{
+
+        .skl-rate {
             height: 4rem;
             width: 50%;
         }
-        .skl-des{
+
+        .skl-des {
             height: 10rem;
             width: 100%;
         }
     }
-    .skl-card{
+
+    .skl-card {
         width: 30rem;
         height: 43rem;
-        @include tablet{
+
+        @include tablet {
             width: 20rem;
             height: 28rem;
         }
-        @include mobile{
+
+        @include mobile {
             display: none;
         }
     }

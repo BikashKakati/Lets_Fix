@@ -1,42 +1,35 @@
-import React, { useEffect, useState,} from 'react'
+import React, { useEffect, useState, } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
+import Img from '../lazyLoadImage/Img'
 import { Autoplay, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.css'
-
+import FallbackImg from '../../assets/no-poster.png'
 
 import './SliderPoster.scss';
-import { Link } from 'react-router-dom';
 import useFetch from '../../customHooks/useFetch'
 
 
 
 
 const SliderPoster = () => {
-    
-    const { data, isLoading} = useFetch("/movie/popular");
+
+    const { data, isLoading } = useFetch("/movie/popular");
 
     return (
         <div className="slider-poster">
-            
+
             {
                 isLoading ?
-                    // <div className="swiper">
-                    //     <SkeletonTheme color='#202020' highlightColor='#444' >
-                    //         <Skeleton height={500} />
-                    //     </SkeletonTheme>
-                    // </div>
-                    <div className={window.innerWidth<=600 ? "skl-container skeleton" : "skl-container"}>
-                            <div className="skl-about">
-                                <div className="skl-title skeleton"></div>
-                                <div className="skl-rate skeleton"></div>
-                                <div className="skl-des skeleton"></div>
-                            </div>
-                            <div className="skl-card skeleton">
+                    <div className={window.innerWidth <= 600 ? "skl-container skeleton" : "skl-container"}>
+                        <div className="skl-about">
+                            <div className="skl-title skeleton"></div>
+                            <div className="skl-rate skeleton"></div>
+                            <div className="skl-des skeleton"></div>
+                        </div>
+                        <div className="skl-card skeleton">
 
-                            </div>
+                        </div>
                     </div>
                     :
                     <SlidingCarousel movieList={data?.results} />
@@ -59,31 +52,36 @@ const SlidingCarousel = ({ movieList }) => {
             pagination
         >
             {
-                movieList?.map((movie) => (
+                movieList?.map((movie) => {
+                    const imgLink = movie?.poster_path ? `https://image.tmdb.org/t/p/original${movie.poster_path}` : FallbackImg;
+                    
+                    return(
+
                     <SwiperSlide key={movie?.id}>
-                        <div className="poster-container" onClick={()=>{Navigate(`/movie/${movie?.id}`)}}>
+                        <div className="poster-container" onClick={() => { Navigate(`/details/${movie?.id}`) }}>
 
-                                <img src={`https://image.tmdb.org/t/p/original${movie && movie.backdrop_path}`} />
-                                <div className="poster-details">
-                                    <div className="poster-about">
+                            <Img src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`} />
+                            <div className="poster-details">
+                                <div className="poster-about">
 
-                                        <h1 className='poster-title'>{movie ? movie.original_title : ""}</h1>
-                                        <span className='poster-relDate'> {movie ? movie.release_date : ""} </span>
-                                        <span className='poster-rate'> {movie ? movie.vote_average : ""} <i className='fa-solid fa-star'></i> </span>
-                                        <p className='poster-overview'>{movie ? movie.overview : ""}</p>
-                                        <button className='btn' onClick={()=>{Navigate(`/movie/${movie.id}`)}}>Get Details</button>
+                                    <h1 className='poster-title'>{movie ? movie.original_title : ""}</h1>
+                                    <span className='poster-relDate'> {movie ? movie.release_date : ""} </span>
+                                    <span className='poster-rate'> {movie ? movie.vote_average : ""} <i className='fa-solid fa-star'></i> </span>
+                                    <p className='poster-overview'>{movie ? movie.overview : ""}</p>
+                                    <button className='btn' onClick={() => { Navigate(`/details/${movie.id}`) }}>Get Details</button>
 
-                                    </div>
-                                    <div className="poster-card">
-                                        <Link to={`/movie/${movie?.id}`}><img src={`https://image.tmdb.org/t/p/original${movie && movie.poster_path}`} /></Link>
-                                    </div>
                                 </div>
-
-                            {/* </Link> */}
+                                <div className="poster-card" onClick={() => { Navigate(`/details/${movie?.id}`) }}>
+                                    <img src={imgLink} />
+                                </div>
+                            </div>
                         </div>
 
                     </SwiperSlide>
-                ))
+                    )
+                }
+                    
+                )
             }
         </Swiper>
 
