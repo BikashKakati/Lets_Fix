@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Autoplay, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.css'
@@ -8,24 +8,21 @@ import 'swiper/swiper-bundle.css'
 import './CategorySlider.scss';
 import { Link } from 'react-router-dom';
 import useFetch from '../../customHooks/useFetch';
+ 
 
 
 const CategorySlider = ({ type }) => {
-
-    const [movieList, setMovieList] = useState([]);
+    const Navigate = useNavigate();
     const {data, isLoading, error} = useFetch(`/movie/${type}`);
 
-    useEffect(() =>{
-        setMovieList(data?.results);
-    },[data]);
 
     return (
         <div className="cat-slider">
             
         <div className="wrapper">
             <div className="title-box">
-                <h4 className='title'>{type.toUpperCase()}</h4>
-                <Link to={`/movies/${type ? type : "top_rated"} `}><button className='btn'>  View More </button></Link>
+                <h4 className='title'>{type?.toUpperCase()}</h4>
+                <button className='btn' onClick={()=>{Navigate(`/movies/${type ? type : "top_rated"}`)}}>  View More </button>
 
             </div>
             <Swiper
@@ -38,7 +35,7 @@ const CategorySlider = ({ type }) => {
                 spaceBetween={10}
             >
                 {
-                    movieList?.map((movie, index) => {
+                    data?.results?.map((movie, index) => {
                         return (
                             <SwiperSlide key={index}>
                                 <CatSliderBox movie={movie} />
