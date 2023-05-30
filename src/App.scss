@@ -27,7 +27,7 @@ html {
     display: none;
 }
 body {
-    background: $dark-black;
+    background: $black1;
     color: $white;
     font-weight: 500;
     font-size: 1.4rem;
@@ -104,7 +104,7 @@ li {
 .skeleton {
     position: relative;
     overflow: hidden;
-    background-color: $black;
+    background-color: $black2;
     border-radius: 1rem;
     &::after {
         position: absolute;
@@ -115,10 +115,10 @@ li {
         transform: translateX(-100%);
         background-image: linear-gradient(
             90deg,
-            rgba(#444, 0) 0,
-            rgba(#444, 0.2) 20%,
-            rgba(#444, 0.5) 60%,
-            rgba(#444, 0)
+            rgba(#555, 0) 0,
+            rgba(#555, 0.2) 20%,
+            rgba(#555, 0.5) 60%,
+            rgba(#555, 0)
         );
         animation: shimmer 2s infinite;
         content: "";
