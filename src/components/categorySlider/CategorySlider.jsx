@@ -1,5 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import Img from '../lazyLoadImage/Img';
+import fallbackImg from '../../assets/no-poster.png'
 import { Autoplay, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.css'
@@ -32,7 +34,7 @@ const CategorySlider = ({ type }) => {
                 // autoplay={{ delay: 3000 }}
                 loop
                 navigation={{ clickable: true }}
-                spaceBetween={10}
+                // spaceBetween={10}
             >
                 {
                     data?.results?.map((movie, index) => {
@@ -51,20 +53,23 @@ const CategorySlider = ({ type }) => {
 
 }
 const CatSliderBox = ({ movie }) => {
-    const { id, poster_path, original_title, vote_average, overview } = movie
+    const { id, poster_path, original_title, vote_average, release_date} = movie;
+    const imgLink = movie ? `https://image.tmdb.org/t/p/original${movie && poster_path}` : fallbackImg;
     return (
-        <div className="cat-card-box">
+        <div className="cat-cardBox">
+
+        <div className="cat-imgBox">
             <Link to={`/movie/${id}`}>
 
-                <img src={`https://image.tmdb.org/t/p/original${movie && poster_path}`} />
-
-                <div className="cat-card-about">
-                    <h4>{movie ? original_title : ""}</h4>
-                    <span> {movie ? vote_average : ""} <i className='fa-solid fa-star'></i> </span>
-                    <p>{movie ? overview.slice(0, 100) + "...." : ""}</p>
-                </div>
+                <Img src={imgLink} />
 
             </Link>
+        </div>
+        <div className="cat-cardAbout">
+                    <h4 className="title">{movie ? original_title : ""}</h4>
+                    <span className="rel-date">{movie ? release_date: ""}</span>
+                    <span className="rate"> {movie ? vote_average : ""} <i className='fa-solid fa-star'></i> </span>
+                </div>
         </div>
     )
 }
