@@ -1,29 +1,31 @@
 
 import { Link } from 'react-router-dom'
+import Img from '../lazyLoadImage/Img';
+import fallbackImg from '../../assets/no-poster.png'
 import './Cards.scss'
 
-const Cards = ({ movies }) => {
+const Cards = ({ movieData}) => {
 
-  const { id, poster_path, original_title, vote_average, overview } = movies
+  const posterImgLink = movieData?.poster_path ? `https://image.tmdb.org/t/p/original${movieData.poster_path}` : fallbackImg;
+  
   return (
-    <>
-      {
-        <Link to={`/movie/${id}`}>
-          <div className="card-box">
 
-            <img src={`https://image.tmdb.org/t/p/original${movies && poster_path}`} />
+    <div className="cat-cardBox">
 
-            <div className="card-about">
-              <h4>{movies ? original_title : ""}</h4>
-              <span> {movies ? vote_average : ""} <i className='fa-solid fa-star'></i> </span>
-              <p>{movies ? overview.slice(0, 100) + "...." : ""}</p>
-            </div>
+      <div className="cat-imgBox">
+        <Link to={`/movie/${movieData?.id}`}>
 
-          </div>
+          <Img src={posterImgLink} />
+
         </Link>
+      </div>
+      <div className="cat-cardAbout">
+        <h4 className="movie-title">{movieData ? movieData.original_title : ""}</h4>
+        <span className="rel-date">{movieData ? movieData.release_date : ""}</span>
+        <span className="rate"> {movieData ? movieData.vote_average : ""} <i className='fa-solid fa-star'></i> </span>
+      </div>
+    </div>
 
-      }
-    </>
   )
 }
 
