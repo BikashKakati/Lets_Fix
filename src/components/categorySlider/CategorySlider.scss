@@ -2,16 +2,13 @@
 
 .swiper {
     .swiper-slide {
-        width: 20%;
-    }
-
-    .swiper-button-prev,
-    .swiper-button-next {
-        color: $white;
-    }
-
-    .swiper-pagination-bullet {
-        background: $white;
+        width: 18%;
+        @include tablet{
+            width: 24%;
+        }
+        @include mobile{
+            width: 37%;
+        }
     }
 }
 
@@ -26,62 +23,56 @@
             align-items: center;
             justify-content: space-between;
             margin-bottom: 2rem;
-        }
-
-        .cat-cardBox {
-            position: relative;
-
-            .cat-imgBox {
-                height: 33rem;
-                position: relative;
-                border-radius: 1rem;
-                background-size: cover;
-                background-position: center;
-                aspect-ratio: 1/1.5;
-
-                .lazy-load-image-background {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 12px;
-                    overflow: hidden;
-
-                    img {
-                        border-radius: 1rem;
-                    }
-                }
-
+            .cat-type{
+               font-size: 3rem;
+               @include mobile{
+                font-size: 2.4rem;
+               }
             }
-
+            .btn{
+                font-size: 1.7rem;
+                @include mobile{
+                    font-size: 1.3rem;
+                }
+            }
+        }
+        .cat-cardBox{
+            .cat-imgBox{
+                height: unset;
+            }
             .cat-cardAbout {
                 margin: 1.5rem 3rem 0 .5rem;
                 color: $white;
-                .title{
+                @include mobile{
+                    display: flex;
+                    flex-direction: column;
+                }
+                .movie-title{
                     margin-bottom: .5rem;
                     font-size: 1.47rem;
                     font-weight: 600;
+                    @include mobile{
+                        font-size: 1.2rem;
+                        font-weight: 500;
+                    }
                 }
                 .rel-date{
                     font-weight: 300;
-                    margin-right: 2rem;
+                    margin-right: 1.3rem;
+                    @include mobile{
+                        font-size: 1.1rem;
+                        
+                    }
+        
                 }
                 .rate{
                     font-weight: 500;
+                    @include mobile{
+                        font-weight: 400;
+                    }
                 }
-
+        
             }
-
         }
     }
 }
-
-
-    @media(max-width:600px) {
-        .swiper {
-            .swiper-slide {
-                width: 30%;
-            }
-        }
-    }
