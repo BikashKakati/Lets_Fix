@@ -12,38 +12,43 @@ import './MoviesExplore.scss'
 import useFetch from '../../customHooks/useFetch';
 const MovieList = () => {
 
-    const [movieList, setMovieList] = useState([]);
     const {render,inputData} = useSearchBox();
     const { type } = useParams();
-    const {data, isLoading, error} = useFetch(`movie/${type ? type : popular}`);
+    const {data, isLoading, error} = useFetch(`/movie/${type ? type : popular}`);
 
-    useEffect(() =>{
-        window.scrollTo(0, 0);
-        setMovieList(data?.results);
-    },[data]);
 
-    let getFilterData = movieList?.filter(movie => {
-        return movie?.original_title?.toLowerCase().includes(inputData?.toLowerCase())
-    })
+    // let getFilterData = data?.results?.filter(movie => {
+    //     return movie?.original_title?.toLowerCase().includes(inputData?.toLowerCase())
+    // })
     
     return (
         <div className='movielist-container'>
-             {render}
-            <h4>{(type ? type : "").toUpperCase()} </h4>
+            <div className="wrapper">
+
             <div className="inner-container">
+                <div className="top-items">
+            <h4 className="movie-typeText">{(type ? type : "").toUpperCase()} </h4>
+             {render}
+
+                </div>
                 {
 
-                    getFilterData?
+                    data?.results ?
 
-                        (getFilterData?.map((movie, index) => (
+                        (data?.results.map((movie, index) => (
                             isLoading ?
-                                <SkeletonSt index={index}/>
+                                // <SkeletonSt index={index}/>
+                                <div className="card-box" key={movie.id}>
+                                    <div className="card-imgBox skeleton"></div>
+                                </div>
+
                                 :
-                                <Cards key={index} movies={movie ? movie : ""} />
+                                <Cards key={movie?.id} movieData={movie} />
                         )))
                         :
                         <h4>No results found !</h4>
                 }
+            </div>
             </div>
         </div>
     )
@@ -59,15 +64,15 @@ const useSearchBox = () =>{
             </div>
     )}
 }
-const SkeletonSt = ({index}) => {
-    return (
-        <SkeletonTheme key={index} baseColor='#202020' highlightColor='#444'>
-            <div className="skeleton-card-box">
-                <Skeleton height={275} />
+// const SkeletonSt = ({index}) => {
+//     return (
+//         <SkeletonTheme key={index} baseColor='#202020' highlightColor='#444'>
+//             <div className="skeleton-card-box">
+//                 <Skeleton height={275} />
 
-            </div>
-        </SkeletonTheme>
+//             </div>
+//         </SkeletonTheme>
 
-    )
-}
+//     )
+// }
 export default MovieList
