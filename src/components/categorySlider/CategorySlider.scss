@@ -36,11 +36,11 @@
                 }
             }
         }
-        .cat-cardBox{
-            .cat-imgBox{
+        .card-box{
+            .card-imgBox{
                 height: unset;
             }
-            .cat-cardAbout {
+            .card-aboutBox {
                 margin: 1.5rem 3rem 0 .5rem;
                 color: $white;
                 @include mobile{

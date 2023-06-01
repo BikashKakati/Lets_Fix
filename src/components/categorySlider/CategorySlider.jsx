@@ -23,7 +23,7 @@ const CategorySlider = ({ type }) => {
             <div className="wrapper">
                 <div className="title-box">
                     <h4 className='cat-type'>{type.toUpperCase()}</h4>
-                    <button className='btn' onClick={() => { Navigate(`/movies/${type ? type : "top_rated"}`) }}>  View More </button>
+                    <button className='btn' onClick={() => { Navigate(`/explore/${type ? type : "top_rated"}`) }}>  View More </button>
 
                 </div>
                 <Swiper
@@ -40,8 +40,8 @@ const CategorySlider = ({ type }) => {
                             return (
                                 <SwiperSlide key={index}>
                                     {isLoading ? 
-                                    <div className="cat-cardBox ">
-                                        <div className="cat-imgBox skeleton">
+                                    <div className="card-box ">
+                                        <div className="card-imgBox skeleton">
 
                                         </div>
                                     </div>

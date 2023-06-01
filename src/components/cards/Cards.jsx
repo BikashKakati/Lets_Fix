@@ -10,16 +10,16 @@ const Cards = ({ movieData}) => {
   
   return (
 
-    <div className="cat-cardBox">
+    <div className="card-box">
 
-      <div className="cat-imgBox">
+      <div className="card-imgBox">
         <Link to={`/movie/${movieData?.id}`}>
 
           <Img src={posterImgLink} />
 
         </Link>
       </div>
-      <div className="cat-cardAbout">
+      <div className="card-aboutBox">
         <h4 className="movie-title">{movieData ? movieData.original_title : ""}</h4>
         <span className="rel-date">{movieData ? movieData.release_date : ""}</span>
         <span className="rate"> {movieData ? movieData.vote_average : ""} <i className='fa-solid fa-star'></i> </span>
