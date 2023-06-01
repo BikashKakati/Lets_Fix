@@ -1,15 +1,22 @@
 @use "../../scss/" as *;
 
-.cat-cardBox {
+.card-box {
     position: relative;
+    max-width: 22rem;
+    @include mobile{
+        max-width: 16rem;
+    }
 
-    .cat-imgBox {
+    .card-imgBox {
         height: 32rem;
         position: relative;
         border-radius: 1rem;
         background-size: cover;
         background-position: center;
         aspect-ratio: 1/1.5;
+        @include mobile{
+            height: 24rem;
+        }
 
         .lazy-load-image-background {
             position: absolute;
@@ -27,7 +34,7 @@
 
     }
 
-    .cat-cardAbout {
+    .card-aboutBox {
         margin: 1.5rem 3rem 0 .5rem;
         color: $white;
         .movie-title{
