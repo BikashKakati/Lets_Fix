@@ -22,7 +22,6 @@ const Cards = ({ movieData}) => {
       <div className="card-aboutBox">
         <h4 className="movie-title">{movieData ? movieData.original_title : ""}</h4>
         <span className="rel-date">{movieData ? movieData.release_date : ""}</span>
-        <span className="rate"> {movieData ? movieData.vote_average : ""} <i className='fa-solid fa-star'></i> </span>
       </div>
     </div>
 

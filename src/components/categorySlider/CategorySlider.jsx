@@ -36,9 +36,9 @@ const CategorySlider = ({ type }) => {
                     spaceBetween={10}
                 >
                     {
-                        data?.results?.map((movie, index) => {
+                        data?.results?.map((movie) => {
                             return (
-                                <SwiperSlide key={index}>
+                                <SwiperSlide key={movie.id}>
                                     {isLoading ? 
                                     <div className="card-box ">
                                         <div className="card-imgBox skeleton">
