@@ -1,7 +1,8 @@
-import React, {lazy, Suspense} from 'react'
+import React, { lazy, Suspense } from 'react'
 import './App.scss'
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/navbar/Navbar'
+import Spinner from './components/spinner/Spinner'
 import PageNotFound from './pages/404/PageNotFound'
 import SearchResults from './pages/searchResults/SearchResults'
 import Footer from './components/footer/Footer'
@@ -14,23 +15,23 @@ const App = () => {
 
 
   return (
-    <>
-    <Router>
-      <Navbar/>
-      <Suspense fallback = {<h4 style={{textAlign: "center"}}>Loading...</h4>}>
-      <Routes>
+    <div className="main-container">
+      <Router>
+        <Navbar />
+        <Suspense fallback={<Spinner />}>
+          <Routes>
 
-        <Route path='/' element= {<Home/>} />
-        <Route path='/explore/:type' element= {<MovieExplore/>} />
-        <Route path='/details/:id' element= {<MovieDetails/>} />
-        <Route path='/search/:query' element={<SearchResults/>}/>
-        <Route path='*' element={<PageNotFound/>}/>
+            <Route path='/' element={<Home />} />
+            <Route path='/explore/:type' element={<MovieExplore />} />
+            <Route path='/details/:id' element={<MovieDetails />} />
+            <Route path='/search/:query' element={<SearchResults />} />
+            <Route path='*' element={<PageNotFound />} />
 
-      </Routes>
-      </Suspense>
-      <Footer/>
-    </Router>
-    </>
+          </Routes>
+        </Suspense>
+        <Footer />
+      </Router>
+    </div>
 
   )
 }

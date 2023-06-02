@@ -2,7 +2,8 @@
 
 .card-box {
     position: relative;
-    max-width: 22rem;
+    max-width: 21rem;
+    max-height: 40rem;
     @include mobile{
         max-width: 16rem;
     }
@@ -46,9 +47,6 @@
             font-weight: 300;
             margin-right: 1.3rem;
 
-        }
-        .rate{
-            font-weight: 500;
         }
 
     }
