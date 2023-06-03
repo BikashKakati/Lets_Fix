@@ -16,9 +16,8 @@
         align-items: center;
         justify-content: center;
         gap: 3rem;
-        margin-bottom: 15rem;
+        margin-bottom: 5rem;
         @include tablet {
-            margin-bottom: 5rem;
             gap: 1.5rem;
         }
         .menuItem {
@@ -54,7 +53,7 @@
             width: 5rem;
             height: 5rem;
             border-radius: 50%;
-            background: grey;
+            background: $grey;
             display: flex;
             align-items: center;
             justify-content: center;
