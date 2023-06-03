@@ -1,0 +1,14 @@
+@use "../../scss/" as *;
+.circleRating {
+    background-color: $black1;
+    border-radius: 50%;
+    padding: .2rem;
+    .CircularProgressbar-text {
+        font-size: 3.4rem;
+        font-weight: 700;
+        fill: $white;
+    }
+    .CircularProgressbar-trail {
+        stroke: transparent;
+    }
+}
