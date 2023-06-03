@@ -33,7 +33,7 @@ const Navbar = () => {
           <input type="text" className={searchOn ? "input-area on" : "input-area"} placeholder='search movies here....' />
         </div>
 
-        <ul className={menuOn ? "categories on" : "categories"} >
+        <ul className={menuOn ? "categories on" : "categories"} onClick={()=>{setMenuOn(!menuOn)}}>
           <li className="cat-type"><Link to="/explore/popular">Popular</Link></li>
           <li className="cat-type"><Link to="/explore/top_rated">Top Rated</Link></li>
           <li className="cat-type"><Link to="/explore/upcoming">Upcoming</Link></li>
