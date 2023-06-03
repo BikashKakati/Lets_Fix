@@ -12,9 +12,9 @@ import useFetch from '../../customHooks/useFetch';
 
 
 
-const CategorySlider = ({ type }) => {
+const CategorySlider = ({ title, endPoint }) => {
     const Navigate = useNavigate();
-    const { data, isLoading, error } = useFetch(`/movie/${type}`);
+    const { data, isLoading, error } = useFetch(`/movie/${endPoint}`);
 
 
     return (
@@ -22,8 +22,8 @@ const CategorySlider = ({ type }) => {
 
             <div className="wrapper">
                 <div className="title-box">
-                    <h4 className='cat-type'>{type.toUpperCase()}</h4>
-                    <button className='btn' onClick={() => { Navigate(`/explore/${type ? type : "top_rated"}`) }}>  View More </button>
+                    <h4 className='cat-type'>{title}</h4>
+                    <button className='btn' onClick={() => { Navigate(`/explore/${endPoint && endPoint}`) }}>  View More </button>
 
                 </div>
                 <Swiper
