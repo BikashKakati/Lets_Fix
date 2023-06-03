@@ -3,9 +3,10 @@
 .card-box {
     position: relative;
     max-width: 21rem;
-    max-height: 40rem;
+    height: 40rem;
     @include mobile{
         max-width: 16rem;
+        height: 35rem;
     }
 
     .card-imgBox {
@@ -17,6 +18,12 @@
         aspect-ratio: 1/1.5;
         @include mobile{
             height: 24rem;
+        }
+        .circleRating{
+            position: absolute;
+            width: 6rem;
+            bottom: 0;
+            left: 0;
         }
 
         .lazy-load-image-background {
@@ -36,18 +43,32 @@
     }
 
     .card-aboutBox {
-        margin: 1.5rem 3rem 0 .5rem;
+        margin: 1.5rem .5rem 0;
         color: $white;
-        .movie-title{
-            margin-bottom: .5rem;
-            font-size: 1.47rem;
-            font-weight: 600;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        .card-textBox{
+            .movie-title{
+                margin-bottom: .5rem;
+                font-size: 1.47rem;
+                font-weight: 600;
+            }
+            .rel-date{
+                font-weight: 300;
+                margin-right: 1.3rem;
+    
+            }
         }
-        .rel-date{
-            font-weight: 300;
-            margin-right: 1.3rem;
+        .card-favourite{
+            font-size: 2rem;
+            margin-left: .5rem;
+            transition: all $transition;
+        }
+        .card-favourite.on{
+           color:$red;
+        }
 
-        }
 
     }
 
