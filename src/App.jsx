@@ -9,8 +9,7 @@ import Footer from './components/footer/Footer'
 
 const Home = lazy(() => import('./pages/home/Home'))
 const MovieExplore = lazy(() => import('./pages/moviesExplore/MoviesExplore'))
-const MovieDetails = lazy(() => import('./pages/movieDetails/MovieDetails'))
-
+const MovieDetails = lazy(() => import('./pages/details/Details'))
 const App = () => {
 
 

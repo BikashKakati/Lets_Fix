@@ -14,9 +14,9 @@ const Home = () => {
     return(
         <>
         <SliderPoster/>
-        <CategorySlider  type="top_rated"/>
-        <CategorySlider  type="popular"/>
-        <CategorySlider  type="upcoming"/>
+        <CategorySlider title = "Top Rated"  endPoint="top_rated"/>
+        <CategorySlider title = "Most Popular"  endPoint="popular"/>
+        <CategorySlider title = "Upcoming"  endPoint="upcoming"/>
         
         </>
     )
