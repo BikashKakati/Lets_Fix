@@ -4,9 +4,13 @@
     position: relative;
     max-width: 21rem;
     height: 40rem;
+    transition: opacity $transition;
     @include mobile{
         max-width: 16rem;
         height: 35rem;
+    }
+    &:hover{
+        opacity: 0.5;
     }
 
     .card-imgBox {
@@ -24,6 +28,9 @@
             width: 6rem;
             bottom: 0;
             left: 0;
+            @include mobile{
+                width: 5rem;
+            }
         }
 
         .lazy-load-image-background {
@@ -46,6 +53,7 @@
         margin: 1.5rem .5rem 0;
         color: $white;
         display: flex;
+        flex-wrap: nowrap;
         align-items: flex-start;
         justify-content: space-between;
         .card-textBox{

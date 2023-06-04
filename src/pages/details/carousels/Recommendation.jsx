@@ -1,14 +1,13 @@
 import React from "react";
 
-import Carousel from "../../../components/categorySlider/CategorySlider";
+import Carousel from "../../../components/carousels/Carousels";
+import useFetch from "../../../customHooks/useFetch";
 
 const Recommendation = ({ id }) => {
+    const { data, isLoading } = useFetch(`/movie/${id}/recommendations`);
 
     return (
-        <Carousel
-            title="Recommendations"
-            endpoint={`${id}/recommendations`}
-        />
+        <Carousel data = {data} isLoading={isLoading} title="Recommendations"/>
     );
 };
 

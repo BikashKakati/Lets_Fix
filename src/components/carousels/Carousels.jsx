@@ -7,14 +7,12 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.css'
 
 
-import './CategorySlider.scss';
-import useFetch from '../../customHooks/useFetch';
+import './Carousels.scss';
 
 
 
-const CategorySlider = ({ title, endPoint }) => {
+const CategorySlider = ({data, isLoading, title, endPoint }) => {
     const Navigate = useNavigate();
-    const { data, isLoading, error } = useFetch(`/movie/${endPoint}`);
 
 
     return (
@@ -23,14 +21,13 @@ const CategorySlider = ({ title, endPoint }) => {
             <div className="wrapper">
                 <div className="title-box">
                     <h4 className='cat-type'>{title}</h4>
-                    <button className='btn' onClick={() => { Navigate(`/explore/${endPoint && endPoint}`) }}>  View More </button>
+                    {endPoint && <button className='btn' onClick={() => { Navigate(`/explore/${endPoint && endPoint}`) }}>  View More </button>}
+                    
 
                 </div>
                 <Swiper
                     modules={[Navigation, Pagination, Autoplay]}
                     slidesPerView={"auto"}
-                    // speed={2}
-                    // autoplay={{ delay: 3000 }}
                     loop
                     navigation={{ clickable: true }}
                     spaceBetween={10}

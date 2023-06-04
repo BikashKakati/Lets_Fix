@@ -1,7 +1,7 @@
 
 import './Home.scss';
 import SliderPoster from '../../components/sliderPoster/SliderPoster';
-import CategorySlider from '../../components/categorySlider/CategorySlider';
+import CategoryType from './carousels/CategoryType';
 
 
 
@@ -14,10 +14,9 @@ const Home = () => {
     return(
         <>
         <SliderPoster/>
-        <CategorySlider title = "Top Rated"  endPoint="top_rated"/>
-        <CategorySlider title = "Most Popular"  endPoint="popular"/>
-        <CategorySlider title = "Upcoming"  endPoint="upcoming"/>
-        
+        <CategoryType title = "Top Rated"  endPoint="top_rated"/>
+        <CategoryType title = "Most Popular"  endPoint="popular"/>
+        <CategoryType title = "Upcoming"  endPoint="upcoming"/>
         </>
     )
 

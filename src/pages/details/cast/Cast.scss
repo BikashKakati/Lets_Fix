@@ -1,0 +1,102 @@
+@use "../../../scss/" as *;
+.castSection {
+    position: relative;
+    margin-bottom: 5rem;
+    .sectionHeading {
+        font-size: 2.4rem;
+        color: $white;
+        margin-bottom: 2.5rem;
+    }
+    .listItems {
+        display: flex;
+        gap: 2rem;
+        margin: 0;
+        padding: 0 1rem;
+        overflow-y: hidden;
+        overflow-x: auto;
+        @include mobile {
+            margin-left: -2rem;
+            padding: 0 2rem;
+            margin-right: -2rem;
+        }
+        .listItem {
+            text-align: center;
+            color: $white;
+            .profileImg {
+                width: 17.5rem;
+                height: 17.5rem;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-bottom: 2.5rem;
+                @include mobile {
+                    width: 12.5rem;
+                    height: 12.5rem;
+                    margin-bottom: 1.5rem;
+                }
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center top;
+                    display: block;
+                }
+            }
+            .name {
+                font-weight: 600;
+                font-size: 1.8rem;
+                line-height: 2.4rem;
+                @include mobile {
+                    font-size: 1.4rem;
+                    line-height: 2rem;
+                }
+            }
+            .character {
+                opacity: 0.5;
+                font-size: 1.6rem;
+                line-height: 2.4rem;
+                @include mobile {
+                    font-size: 1.4;
+                    line-height: 2rem;
+                }
+            }
+        }
+    }
+
+    .castSkeleton {
+        display: flex;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+        overflow-y: hidden;
+        @include mobile {
+            margin-right: -2rem;
+            margin-left: -2rem;
+            padding: 0 2rem;
+        }
+        .skItem {
+            .circle {
+                border-radius: 50%;
+                width: 17.5rem;
+                height: 17.5rem;
+                margin-bottom: 2.5rem;
+                @include mobile {
+                    width: 12.5rem;
+                    height: 12.5rem;
+                    margin-bottom: 1.5rem;
+                }
+            }
+            .row {
+                width: 100%;
+                height: 2rem;
+                border-radius: 1rem;
+                margin-bottom: 1rem;
+            }
+            .row2 {
+                width: 75%;
+                height: 2rem;
+                border-radius: 1rem;
+                margin: 0 auto;
+            }
+        }
+    }
+}
