@@ -1,15 +1,14 @@
 import React from "react";
 
-import Carousel from "../../../components/categorySlider/CategorySlider";
+import Carousel from "../../../components/carousels/Carousels";
+import useFetch from "../../../customHooks/useFetch";
 
-const Similar = ({ id }) => {
+const Recommendation = ({ id }) => {
+    const { data, isLoading } = useFetch(`/movie/${id}/similar`);
 
     return (
-        <Carousel
-            title="Similar"
-            endpoint={`${id}/similar`}
-        />
+        <Carousel data = {data} isLoading={isLoading} title="Similar"/>
     );
 };
 
-export default Similar;
+export default Recommendation;
