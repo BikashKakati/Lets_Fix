@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/Movieslogo.png'
 import './Navbar.scss';
@@ -6,17 +7,17 @@ import './Navbar.scss';
 const Navbar = () => {
   const [menuOn, setMenuOn] = useState(false);
   const [searchOn, setSearchOn] = useState(false);
+  const [query, setQuery] = useState("");
+  const Navigate = useNavigate();
+
+  const searchQuery = (e) =>{
+     if(e.key === "Enter" && !!query){
+        Navigate(`/search/${query}`)
+     }
+  }
+
   return (
-    // <div className='navbar'>
-    //     <div className="sm-container">
-    //             <Link to ="/"><span><img src={logo}/>LetsFix</span></Link>
-    //         <ul>
-    //             <li><Link to = "/movies/popular">Popular</Link></li>
-    //             <li><Link to = "/movies/top_rated">Top Rated</Link></li>
-    //             <li><Link to = "/movies/upcoming">Upcoming</Link></li>
-    //         </ul>
-    //     </div>
-    // </div>
+
     <header className="navbar">
       <div className="wrapper">
         <Link to="/">
@@ -30,7 +31,7 @@ const Navbar = () => {
 
           <i className="fa fa-search" aria-hidden="true" onClick={() => { menuOn && setMenuOn(!menuOn); setSearchOn(!searchOn); }}></i>
 
-          <input type="text" className={searchOn ? "input-area on" : "input-area"} placeholder='search movies here....' />
+          <input type="text" className={searchOn ? "input-area on" : "input-area"} placeholder='search movies here....' value={query} onChange = {(e)=>{setQuery(e.target.value)}} onKeyUp={searchQuery}/>
         </div>
 
         <ul className={menuOn ? "categories on" : "categories"} onClick={()=>{setMenuOn(!menuOn)}}>
