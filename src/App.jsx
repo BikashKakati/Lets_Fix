@@ -17,7 +17,7 @@ const App = () => {
     <div className="main-container">
       <Router>
         <Navbar />
-        <Suspense fallback={<Spinner />}>
+        <Suspense fallback={<Spinner initial={true}/>}>
           <Routes>
 
             <Route path='/' element={<Home />} />
