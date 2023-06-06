@@ -5,10 +5,18 @@ import Img from '../lazyLoadImage/Img';
 import fallbackImg from '../../assets/no-poster.png';
 import './Cards.scss';
 
+import { useDispatch } from 'react-redux';
+import { add, remove } from '../../store/wishlistSlice';
+
 const Cards = ({ movieData}) => {
   const [favourite, setFavourite] = useState(false);
-
+  const Dispatch = useDispatch();
   const posterImgLink = movieData?.poster_path ? `https://image.tmdb.org/t/p/original${movieData.poster_path}` : fallbackImg;
+
+  const handleAdd = (movieId) =>{
+    setFavourite(!favourite);
+    !favourite ? Dispatch(add(movieData)) : Dispatch(remove(movieId));
+  }
   
   return (
 
@@ -30,7 +38,7 @@ const Cards = ({ movieData}) => {
         <span className="rel-date">{movieData ? movieData.release_date : ""}</span>
 
         </div>
-        <div className={!favourite ? "card-favourite" : "card-favourite on"} onClick={()=>{setFavourite(!favourite)}}>
+        <div className={!favourite ? "card-favourite" : "card-favourite on"} onClick={()=>{handleAdd(movieData?.id)}}>
         <i className="fa-solid fa-heart"></i>
         </div>
       </div>
