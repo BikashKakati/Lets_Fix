@@ -11,6 +11,7 @@ import { add, remove } from '../../store/wishlistSlice';
 const Cards = ({ movieData}) => {
   const [favourite, setFavourite] = useState(false);
   const Dispatch = useDispatch();
+  
   const posterImgLink = movieData?.poster_path ? `https://image.tmdb.org/t/p/original${movieData.poster_path}` : fallbackImg;
 
   const handleAdd = (movieId) =>{

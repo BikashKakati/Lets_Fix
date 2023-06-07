@@ -38,7 +38,7 @@ const Navbar = () => {
           <li className="cat-type"><Link to="/explore/popular">Popular</Link></li>
           <li className="cat-type"><Link to="/explore/top_rated">Top Rated</Link></li>
           <li className="cat-type"><Link to="/explore/upcoming">Upcoming</Link></li>
-          {/* <li className="cat-type"><Link to="/explore/upcoming">Favourite</Link></li> */}
+          <li className="cat-type"><Link to="/wishlist">Favourite</Link></li>
         </ul>
 
         <button className='menu-btn' onClick={() => { searchOn && setSearchOn(!searchOn); setMenuOn(!menuOn); }}>
