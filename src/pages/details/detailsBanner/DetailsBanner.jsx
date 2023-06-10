@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { add,remove } from "../../../store/wishlistSlice";
 
 import "./DetailsBanner.scss";
 
@@ -13,8 +15,23 @@ const DetailsBanner = ({ video, crew }) => {
     const [show, setShow] = useState(false);
     const [videoId, setVideoId] = useState(null);
 
-    const {id } = useParams();
-    const { data, isLoading } = useFetch(`/movie/${id}`);
+    const { id: movieId } = useParams();
+    const dispatch = useDispatch();
+    
+    const { data, isLoading } = useFetch(`/movie/${movieId}`);
+    const {wishList} = useSelector((state) => state.wishList);
+
+    const isFavorite = wishList.some((favMovie) => favMovie.id.toString() === movieId);
+
+    const handleToggleFavorite = () =>{
+        if(isFavorite){
+            dispatch(remove(data));
+        }else{
+            dispatch(add(data));
+        }
+    }
+    
+
 
     const director = crew?.filter((f) => f.job === "Director");
     const writer = crew?.filter(
@@ -54,9 +71,8 @@ const DetailsBanner = ({ video, crew }) => {
                                     </div>
                                     <div className="right">
                                         <div className="title">
-                                            {`${
-                                                data.name || data.title
-                                            } (${data?.release_date})`}
+                                            {`${data.name || data.title
+                                                } (${data?.release_date})`}
                                         </div>
                                         <div className="subtitle">
                                             {data.tagline}
@@ -88,6 +104,9 @@ const DetailsBanner = ({ video, crew }) => {
                                                 <span className="text">
                                                     Watch Trailer
                                                 </span>
+                                            </div>
+                                            <div className={isFavorite ? "card-favourite on" : "card-favourite"} onClick={handleToggleFavorite}>
+                                                <i className="fa-solid fa-heart"></i>
                                             </div>
                                         </div>
 

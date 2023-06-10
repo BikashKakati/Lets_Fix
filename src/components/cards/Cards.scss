@@ -4,18 +4,20 @@
     position: relative;
     max-width: 21rem;
     height: 40rem;
-    transition: opacity $transition;
     @include mobile{
         max-width: 16rem;
         height: 35rem;
     }
     &:hover{
-        opacity: 0.5;
-        @include mobile{
-            opacity: 1;
+        .card-imgBox{
+            
+            opacity: 0.5;
+            @include mobile{
+                opacity: 1;
+            }
         }
     }
-
+    
     .card-imgBox {
         height: 32rem;
         position: relative;
@@ -23,6 +25,7 @@
         background-size: cover;
         background-position: center;
         aspect-ratio: 1/1.5;
+        transition: opacity $transition;
         @include mobile{
             height: 24rem;
         }

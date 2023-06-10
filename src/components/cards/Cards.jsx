@@ -1,24 +1,31 @@
-import { useState } from 'react';
+
 import { Link } from 'react-router-dom';
 import CircleRating from '../circleRating/CircleRating';
 import Img from '../lazyLoadImage/Img';
 import fallbackImg from '../../assets/no-poster.png';
 import './Cards.scss';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { add, remove } from '../../store/wishlistSlice';
 
 const Cards = ({ movieData}) => {
-  const [favourite, setFavourite] = useState(false);
-  const Dispatch = useDispatch();
+  
+  const dispatch = useDispatch();
+  const {wishList} =useSelector((state)=>state.wishList);
+
+  const isFavorite = wishList.some((favMovieCard) => favMovieCard.id === movieData.id);
+
   
   const posterImgLink = movieData?.poster_path ? `https://image.tmdb.org/t/p/original${movieData.poster_path}` : fallbackImg;
 
-  const handleAdd = (movieId) =>{
-    setFavourite(!favourite);
-    !favourite ? Dispatch(add(movieData)) : Dispatch(remove(movieId));
+  const handleToggleFavorite = () =>{
+    if(isFavorite){
+      dispatch(remove(movieData));
+    }else{
+      dispatch(add(movieData));
+    }
   }
-  
+
   return (
 
     <div className="card-box">
@@ -39,7 +46,7 @@ const Cards = ({ movieData}) => {
         <span className="rel-date">{movieData ? movieData.release_date : ""}</span>
 
         </div>
-        <div className={!favourite ? "card-favourite" : "card-favourite on"} onClick={()=>{handleAdd(movieData?.id)}}>
+        <div className={isFavorite ? "card-favourite on": "card-favourite"} onClick={handleToggleFavorite}>
         <i className="fa-solid fa-heart"></i>
         </div>
       </div>
