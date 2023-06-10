@@ -127,6 +127,16 @@
                     }
                 }
             }
+            .card-favourite{
+                font-size: 4rem;
+                margin-left: .5rem;
+                transition: all $transition;
+                &.on{
+                    transform: rotate(360deg);
+                    font-size: 5rem;
+                    color: $red;
+                }
+            }
             .row {
                 display: flex;
                 align-items: center;

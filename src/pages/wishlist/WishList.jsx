@@ -15,7 +15,7 @@ const WishList = () =>{
                     </div>
                     {
                         
-                        wishList.length===0 ?
+                        !wishList.length ?
                         ( 
                             <div className="no-resultImg">
                                 <img src={noResultsFound} />

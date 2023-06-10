@@ -7,10 +7,11 @@ const wishlistSlice = createSlice({
     },
     reducers : {
         add : (state,action) => {
-            state.wishList.push(action.payload);
+         state.wishList.push(action.payload);
         },
         remove : (state,action) => {
-            state.wishList = state.wishList.filter((item) => item.id !== action.payload);
+            const {id} = action.payload;
+            state.wishList = state.wishList.filter((item) => item.id !== id);
         },
     },
     
