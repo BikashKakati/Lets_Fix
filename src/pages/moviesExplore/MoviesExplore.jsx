@@ -28,14 +28,20 @@ const MovieList = () => {
                 <div className="inner-container">
                     <div className="top-items">
                         <h4 className="movie-typeText">{(type ? type : "").toUpperCase()} </h4>
+                        <div className="action-box">
+                            <div className="sorting-box">
+                                <span>sort</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
                         <div className="search-box">
                             <input type="search" placeholder='search...' className='text-area' value={inputData} onChange={(e) => setInputData(e.target.value)} />
+                        </div>
                         </div>
 
                     </div>
                     {
                         
-                        getFilterData?.length > 0 ?
+                        !!getFilterData?.length ?
                         ( getFilterData?.map((movie) => (
                             isLoading ?
                                 <div className="card-box" key={movie?.id}>

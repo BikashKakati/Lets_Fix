@@ -14,7 +14,8 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            @include mobile{
+
+            @include mobile {
                 gap: 1rem;
             }
 
@@ -29,27 +30,50 @@
                 .movie-typeText {
                     font-size: 3rem;
                     margin: 3rem;
-                    @include tablet{
+
+                    @include tablet {
                         margin: 1rem;
                     }
                 }
 
-                .search-box {
+                .action-box {
                     display: flex;
+                    gap: 2rem;
                     align-items: center;
-                    justify-content: center;
+                    width: 65rem;
+                    height: 4rem;
                     margin: 3rem;
-                    width: 50rem;
-                    @include tablet{
+                    @include tablet {
                         margin: 1rem;
                     }
-
-                    .text-area {
-                        padding: 1rem 2.2rem;
-                        width: 100%;
-                        font-size: 1.6rem;
-                        font-weight: 500;
+                    .sorting-box{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        background: $white;
+                        color: $black1;
+                        height: 100%;
+                        padding:0 2rem;
+                        width: calc(100% - (2rem + 80%));
+                        min-width: 8rem;
                         border-radius: 2rem;
+                    }
+
+
+                    .search-box {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 80%;
+
+
+                        .text-area {
+                            padding: 1rem 2.2rem;
+                            width: 100%;
+                            font-size: 1.6rem;
+                            font-weight: 500;
+                            border-radius: 2rem;
+                        }
                     }
                 }
 
@@ -57,7 +81,8 @@
 
 
             }
-            .no-resultImg{
+
+            .no-resultImg {
                 width: 40rem;
             }
         }
