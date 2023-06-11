@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import Cards from '../cards/Cards';
 import { Autoplay, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import FavoriteMoviesWrapper from '../../components/FavoriteMoviesWrapper';
 import 'swiper/swiper-bundle.css'
 
 
@@ -43,7 +44,10 @@ const CategorySlider = ({data, isLoading, title, endPoint }) => {
                                         </div>
                                     </div>
                                     :
-                                    <Cards movieData={movie} />
+                                    <FavoriteMoviesWrapper>
+                                        <Cards movieData={movie} />
+                                    </FavoriteMoviesWrapper>
+                                    
                                     }
                                 </SwiperSlide>
                             )

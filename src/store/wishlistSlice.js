@@ -6,6 +6,9 @@ const wishlistSlice = createSlice({
         wishList : [],
     },
     reducers : {
+        favoriteMovies : (state, action) =>{
+           state.wishList = action.payload;
+        },
         add : (state,action) => {
          state.wishList.push(action.payload);
         },
@@ -17,5 +20,5 @@ const wishlistSlice = createSlice({
     
 })
 
-export const {add,remove} = wishlistSlice.actions;
+export const {add,remove,favoriteMovies} = wishlistSlice.actions;
 export default wishlistSlice.reducer;
