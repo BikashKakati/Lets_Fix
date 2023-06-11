@@ -130,7 +130,13 @@
             .card-favourite{
                 font-size: 4rem;
                 margin-left: .5rem;
+                display: flex;
+                align-items: center;
                 transition: all $transition;
+                .favorite-text{
+                    font-size: 2rem;
+                    margin-left: 2rem;
+                }
                 &.on{
                     transform: rotate(360deg);
                     font-size: 5rem;
