@@ -19,6 +19,7 @@ const WishList = () =>{
                         ( 
                             <div className="no-resultImg">
                                 <img src={noResultsFound} />
+                                <span className="noResult-text">Your wishlist is empty!</span>
                             </div>
                         )
                         :
