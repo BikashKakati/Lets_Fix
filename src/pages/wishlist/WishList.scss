@@ -33,6 +33,12 @@
             }
             .no-resultImg{
                 width: 40rem;
+                .noResult-text{
+                    display: block;
+                    font-size: 2.5rem;
+                    color: $grey;
+                    text-align: center;
+                }
             }
         }
     }

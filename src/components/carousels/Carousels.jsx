@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import Cards from '../cards/Cards';
 import { Autoplay, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import FavoriteMoviesWrapper from '../../components/FavoriteMoviesWrapper';
 import 'swiper/swiper-bundle.css'
 
 
@@ -12,7 +11,7 @@ import './Carousels.scss';
 
 
 
-const CategorySlider = ({data, isLoading, title, endPoint }) => {
+const CategorySlider = ({ data, isLoading, title, endPoint }) => {
     const Navigate = useNavigate();
 
 
@@ -23,7 +22,7 @@ const CategorySlider = ({data, isLoading, title, endPoint }) => {
                 <div className="title-box">
                     <h4 className='cat-type'>{title}</h4>
                     {endPoint && <button className='btn' onClick={() => { Navigate(`/explore/${endPoint && endPoint}`) }}>  View More </button>}
-                    
+
 
                 </div>
                 <Swiper
@@ -37,17 +36,14 @@ const CategorySlider = ({data, isLoading, title, endPoint }) => {
                         data?.results?.map((movie) => {
                             return (
                                 <SwiperSlide key={movie.id}>
-                                    {isLoading ? 
-                                    <div className="card-box ">
-                                        <div className="card-imgBox skeleton">
+                                    {isLoading ?
+                                        <div className="card-box ">
+                                            <div className="card-imgBox skeleton">
 
+                                            </div>
                                         </div>
-                                    </div>
-                                    :
-                                    <FavoriteMoviesWrapper>
+                                        :
                                         <Cards movieData={movie} />
-                                    </FavoriteMoviesWrapper>
-                                    
                                     }
                                 </SwiperSlide>
                             )

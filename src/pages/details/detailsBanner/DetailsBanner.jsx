@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { add,favoriteMovies, remove } from "../../../store/wishlistSlice";
+import { add, remove } from "../../../store/wishlistSlice";
 
 import "./DetailsBanner.scss";
 
@@ -20,16 +20,6 @@ const DetailsBanner = ({ video, crew }) => {
     const {wishList} = useSelector((state) => state.wishList);
     
     const { data, isLoading } = useFetch(`/movie/${movieId}`);
-    
-    // const LOCAL_STORAGE_KEY = "wishList";
-    // useEffect(()=>{
-    //     dispatch(favoriteMovies(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))));
-    // },[])
-    
-
-    // useEffect(()=>{
-    //     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(wishList));
-    // },[wishList])
 
     const isFavorite = wishList.some((favMovie) => favMovie.id.toString() === movieId);
 
