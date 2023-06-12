@@ -31,34 +31,41 @@ const MovieList = () => {
                         <div className="action-box">
                             <div className="sorting-box">
                                 <span>sort</span>
-                                <i class="fa-solid fa-chevron-down"></i>
+                                <i className="fa-solid fa-chevron-down"></i>
                             </div>
-                        <div className="search-box">
-                            <input type="search" placeholder='search...' className='text-area' value={inputData} onChange={(e) => setInputData(e.target.value)} />
-                        </div>
+                            <ul className="sortingTypes-list">
+                                <li className="type">Rating Descending</li>
+                                <li className="type">Rating Ascending</li>
+                                <li className="type">A-Z</li>
+                                <li className="type">Z-A</li>
+                            </ul>
+                            <div className="search-box">
+                                <input type="search" placeholder='search...' className='text-area' value={inputData} onChange={(e) => setInputData(e.target.value)} />
+                            </div>
                         </div>
 
                     </div>
                     {
-                        
+
                         !!getFilterData?.length ?
-                        ( getFilterData?.map((movie) => (
-                            isLoading ?
-                                <div className="card-box" key={movie?.id}>
-                                    <div className="card-imgBox skeleton"></div>
+                            (getFilterData?.map((movie) => (
+                                isLoading ?
+                                    <div className="card-box" key={movie?.id}>
+                                        <div className="card-imgBox skeleton"></div>
+                                    </div>
+
+                                    :
+                                    <Cards key={movie?.id} movieData={movie} />
+                            )))
+                            :
+                            (
+                                <div className="no-resultImg">
+                                    <img src={noResultsFound} />
+                                    <span className="noResult-text">Sorry! no results found</span>
                                 </div>
+                            )
 
-                                :
-                                <Cards key={movie?.id} movieData={movie} />
-                        )))
-                        :
-                        (
-                            <div className="no-resultImg">
-                                <img src={noResultsFound} />
-                            </div>
-                        )
 
-                       
 
                     }
                 </div>

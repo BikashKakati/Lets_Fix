@@ -37,6 +37,7 @@
                 }
 
                 .action-box {
+                    position: relative;
                     display: flex;
                     gap: 2rem;
                     align-items: center;
@@ -47,16 +48,35 @@
                         margin: 1rem;
                     }
                     .sorting-box{
+                        background: $soft-black;
+                        color: $grey;
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
-                        background: $white;
-                        color: $black1;
                         height: 100%;
                         padding:0 2rem;
                         width: calc(100% - (2rem + 80%));
                         min-width: 8rem;
                         border-radius: 2rem;
+                    }
+                    .sortingTypes-list{
+                        color: $black1;
+                        position: absolute;
+                        background: $white;
+                        min-height: 3rem;
+                        width: 35rem;
+                        bottom: 0px;
+                        transform: translateY(100%);
+                        border-radius: 0.7rem;
+                        z-index: 5;
+                        padding: 1rem 0;
+                        .type{
+                           padding: 1rem 2rem ;
+                           &:hover{
+                            background: $grey;
+                           }
+                        }
+                        
                     }
 
 
@@ -68,11 +88,16 @@
 
 
                         .text-area {
+                            color: $grey;
+                            background: $soft-black;
                             padding: 1rem 2.2rem;
                             width: 100%;
                             font-size: 1.6rem;
                             font-weight: 500;
                             border-radius: 2rem;
+                            &::placeholder{
+                                color: $grey;
+                            }
                         }
                     }
                 }
@@ -84,6 +109,12 @@
 
             .no-resultImg {
                 width: 40rem;
+                .noResult-text{
+                    display: block;
+                    font-size: 2.5rem;
+                    color: $grey;
+                    text-align: center;
+                }
             }
         }
     }
