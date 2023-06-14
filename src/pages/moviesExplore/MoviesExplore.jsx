@@ -6,6 +6,8 @@ import Cards from '../../components/cards/Cards';
 import noResultsFound from '../../assets/no-results.png';
 import './MoviesExplore.scss'
 import useFetch from '../../customHooks/useFetch';
+
+
 const MovieList = () => {
 
 
@@ -17,7 +19,14 @@ const MovieList = () => {
         return movie?.original_title?.toLowerCase().includes(inputData.toLowerCase())
     })
 
-
+    const handleSortingMenu = () =>{
+        document.querySelector(".sortingTypes-list").classList.toggle("on")
+    }
+    document.querySelectorAll(".type").forEach(type =>{
+        type.addEventListener("click",()=>{
+            document.querySelector(".sorting-box .sort-text").innerText = type.innerText
+        })
+    })
 
 
 
@@ -28,9 +37,9 @@ const MovieList = () => {
                 <div className="inner-container">
                     <div className="top-items">
                         <h4 className="movie-typeText">{(type ? type : "").toUpperCase()} </h4>
-                        <div className="action-box">
+                        <div className="action-box" onClick={handleSortingMenu}>
                             <div className="sorting-box">
-                                <span>sort</span>
+                                <span className='sort-text'>sort</span>
                                 <i className="fa-solid fa-chevron-down"></i>
                             </div>
                             <ul className="sortingTypes-list">
