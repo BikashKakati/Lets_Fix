@@ -55,11 +55,12 @@
                         justify-content: space-between;
                         height: 100%;
                         padding:0 2rem;
-                        width: calc(100% - (2rem + 80%));
+                        width: calc(100% - (2rem + 65%));
                         min-width: 8rem;
                         border-radius: 2rem;
                     }
                     .sortingTypes-list{
+                        display: none;
                         color: $black1;
                         position: absolute;
                         background: $white;
@@ -76,6 +77,9 @@
                             background: $grey;
                            }
                         }
+                        &.on{
+                            display: block;
+                        }
                         
                     }
 
@@ -84,7 +88,7 @@
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        width: 80%;
+                        width: 65%;
 
 
                         .text-area {
@@ -92,7 +96,7 @@
                             background: $soft-black;
                             padding: 1rem 2.2rem;
                             width: 100%;
-                            font-size: 1.6rem;
+                            font-size: 1.4rem;
                             font-weight: 500;
                             border-radius: 2rem;
                             &::placeholder{
