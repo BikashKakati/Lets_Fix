@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -11,11 +11,17 @@ import useFetch from '../../customHooks/useFetch';
 const MovieList = () => {
 
 
+    const [movieData, setMovieData] = useState(null);
     const { type } = useParams();
     const { data, isLoading, error } = useFetch(`/movie/${type ? type : popular}`);
     const [inputData, setInputData] = useState("");
+    const [sortCallback, setSortCallback] = useState(()=> ()=> {});
 
-    let getFilterData = data?.results?.filter(movie => {
+    useEffect(()=>{
+        setMovieData(data?.results);
+    },[data])
+
+    let getFilterData = movieData?.filter(movie => {
         return movie?.original_title?.toLowerCase().includes(inputData.toLowerCase())
     })
 
@@ -43,10 +49,10 @@ const MovieList = () => {
                                 <i className="fa-solid fa-chevron-down"></i>
                             </div>
                             <ul className="sortingTypes-list">
-                                <li className="type">Rating Descending</li>
-                                <li className="type">Rating Ascending</li>
-                                <li className="type">A-Z</li>
-                                <li className="type">Z-A</li>
+                                <li className="type" onClick={()=>setSortCallback(()=>(a,b) => b.vote_average - a.vote_average)}>Rating Descending</li>
+                                <li className="type" onClick={()=>setSortCallback(()=>(a,b) => a.vote_average - b.vote_average)}>Rating Ascending</li>
+                                <li className="type" onClick={()=>setSortCallback(()=>(a,b) => a.original_title.localeCompare(b.original_title))}>A-Z</li>
+                                <li className="type" onClick={()=>setSortCallback(()=>(a,b) => b.original_title.localeCompare(a.original_title))}>Z-A</li>
                             </ul>
                             <div className="search-box">
                                 <input type="search" placeholder='search...' className='text-area' value={inputData} onChange={(e) => setInputData(e.target.value)} />
@@ -57,7 +63,7 @@ const MovieList = () => {
                     {
 
                         !!getFilterData?.length ?
-                            (getFilterData?.map((movie) => (
+                            (getFilterData.sort(sortCallback)?.map((movie) => (
                                 isLoading ?
                                     <div className="card-box" key={movie?.id}>
                                         <div className="card-imgBox skeleton"></div>
