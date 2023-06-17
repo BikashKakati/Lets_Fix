@@ -13,12 +13,18 @@ const useFetch = (dataUrl) => {
 
     fetchDataFromApi(dataUrl)
       .then((res) => {
-        setTimeout(()=>{setIsLoading(false)},5000);
-        subscribe && setData(res);
+        if(res.ok){
+          subscribe && setData(res);
+          setTimeout(()=>{setIsLoading(false)},5000);
+        }else{
+          setError("Something went Wrong!");
+          setIsLoading(false);
+
+        }
       })
       .catch((err) => {
-        setIsLoading(false);
         setError("Something went Wrong!");
+        setIsLoading(false);
       })
 
     return () => {

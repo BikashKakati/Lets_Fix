@@ -3,6 +3,14 @@
 .slider-poster {
     width: 100vw;
     margin-bottom: 8rem;
+    .wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .netError-img{
+            width: 43rem;
+        }
+    }
 
     @include mobile {
 
