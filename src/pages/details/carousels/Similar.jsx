@@ -3,7 +3,7 @@ import React from "react";
 import Carousel from "../../../components/carousels/Carousels";
 import useFetch from "../../../customHooks/useFetch";
 
-const Recommendation = ({ id }) => {
+const Similar = ({ id }) => {
     const { data, isLoading } = useFetch(`/movie/${id}/similar`);
 
     return (
@@ -11,4 +11,4 @@ const Recommendation = ({ id }) => {
     );
 };
 
-export default Recommendation;
+export default Similar;

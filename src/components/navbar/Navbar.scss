@@ -119,6 +119,7 @@
 
     .cat-type {
         margin-right: 5rem;
+        white-space: nowrap;
         a{
             &:hover{
                 color: $red;

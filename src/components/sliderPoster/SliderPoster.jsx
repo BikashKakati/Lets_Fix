@@ -5,6 +5,7 @@ import { Autoplay, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.css'
 import FallbackImg from '../../assets/no-poster.png'
+import networkError from '../../assets/networkError.png'
 
 import './SliderPoster.scss';
 import useFetch from '../../customHooks/useFetch'
@@ -14,11 +15,18 @@ import useFetch from '../../customHooks/useFetch'
 
 const SliderPoster = () => {
 
-    const { data, isLoading } = useFetch("/movie/popular");
+    const { data, isLoading, error } = useFetch("/movie/popular");
 
     return (
         <div className="slider-poster">
-
+            {
+                !!error &&
+                <div className="wrapper">
+                    <div className="netError-img">
+                        <img src={networkError} />
+                    </div>
+                </div>
+            }
             {
                 isLoading ?
                     <div className={window.innerWidth <= 600 ? "skl-container skeleton" : "skl-container"}>
@@ -54,33 +62,33 @@ const SlidingCarousel = ({ movieList }) => {
             {
                 movieList?.map((movie) => {
                     const imgLink = movie?.poster_path ? `https://image.tmdb.org/t/p/original${movie.poster_path}` : FallbackImg;
-                    
-                    return(
 
-                    <SwiperSlide key={movie?.id}>
-                        <div className="poster-container" onClick={() => { Navigate(`/details/${movie?.id}`) }}>
+                    return (
 
-                            <Img src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`} />
-                            <div className="poster-details">
-                                <div className="poster-about">
+                        <SwiperSlide key={movie?.id}>
+                            <div className="poster-container" onClick={() => { Navigate(`/details/${movie?.id}`) }}>
 
-                                    <h1 className='poster-title'>{movie ? movie.original_title : ""}</h1>
-                                    <span className='poster-relDate'> {movie ? movie.release_date : ""} </span>
-                                    <span className='poster-rate'> {movie ? movie.vote_average : ""} <i className='fa-solid fa-star'></i> </span>
-                                    <p className='poster-overview'>{movie ? movie.overview : ""}</p>
-                                    <button className='btn' onClick={() => { Navigate(`/details/${movie.id}`) }}>Get Details</button>
+                                <Img src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`} />
+                                <div className="poster-details">
+                                    <div className="poster-about">
 
-                                </div>
-                                <div className="poster-card" onClick={() => { Navigate(`/details/${movie?.id}`) }}>
-                                    <img src={imgLink} />
+                                        <h1 className='poster-title'>{movie ? movie.original_title : ""}</h1>
+                                        <span className='poster-relDate'> {movie ? movie.release_date : ""} </span>
+                                        <span className='poster-rate'> {movie ? movie.vote_average : ""} <i className='fa-solid fa-star'></i> </span>
+                                        <p className='poster-overview'>{movie ? movie.overview : ""}</p>
+                                        <button className='btn' onClick={() => { Navigate(`/details/${movie.id}`) }}>Get Details</button>
+
+                                    </div>
+                                    <div className="poster-card" onClick={() => { Navigate(`/details/${movie?.id}`) }}>
+                                        <img src={imgLink} />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                    </SwiperSlide>
+                        </SwiperSlide>
                     )
                 }
-                    
+
                 )
             }
         </Swiper>

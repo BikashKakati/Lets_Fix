@@ -29,9 +29,9 @@ const MovieList = () => {
         document.querySelector(".sortingTypes-list").classList.toggle("on")
     }
     document.querySelectorAll(".type").forEach(type =>{
-        type.addEventListener("click",()=>{
+        type.onclick =()=>{
             document.querySelector(".sorting-box .sort-text").innerText = type.innerText
-        })
+        }
     })
 
 
@@ -43,14 +43,15 @@ const MovieList = () => {
                 <div className="inner-container">
                     <div className="top-items">
                         <h4 className="movie-typeText">{(type ? type : "").toUpperCase()} </h4>
-                        <div className="action-box" onClick={handleSortingMenu}>
-                            <div className="sorting-box">
+                        <div className="action-box" >
+                            <div className="sorting-box" onClick={handleSortingMenu}>
                                 <span className='sort-text'>sort</span>
                                 <i className="fa-solid fa-chevron-down"></i>
                             </div>
                             <ul className="sortingTypes-list">
-                                <li className="type" onClick={()=>setSortCallback(()=>(a,b) => b.vote_average - a.vote_average)}>Rating Descending</li>
+                                <li className="type" onClick={()=>setSortCallback(()=>() => {})}>Remove Sorting</li>
                                 <li className="type" onClick={()=>setSortCallback(()=>(a,b) => a.vote_average - b.vote_average)}>Rating Ascending</li>
+                                <li className="type" onClick={()=>setSortCallback(()=>(a,b) => b.vote_average - a.vote_average)}>Rating Descending</li>
                                 <li className="type" onClick={()=>setSortCallback(()=>(a,b) => a.original_title.localeCompare(b.original_title))}>A-Z</li>
                                 <li className="type" onClick={()=>setSortCallback(()=>(a,b) => b.original_title.localeCompare(a.original_title))}>Z-A</li>
                             </ul>

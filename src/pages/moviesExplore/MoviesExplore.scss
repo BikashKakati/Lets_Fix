@@ -58,6 +58,16 @@
                         width: calc(100% - (2rem + 65%));
                         min-width: 8rem;
                         border-radius: 2rem;
+                        overflow: hidden;
+                        position: relative;
+                        .sort-text{
+                            white-space: nowrap;
+                        }
+                        .fa-solid{
+                            position: absolute;
+                            right: 1rem;
+                            padding-left: .5rem;
+                        }
                     }
                     .sortingTypes-list{
                         display: none;
