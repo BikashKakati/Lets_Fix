@@ -5,7 +5,7 @@ import { fetchDataFromApi } from "../utils/api";
 const useFetch = (dataUrl) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     let subscribe = true;
@@ -13,18 +13,18 @@ const useFetch = (dataUrl) => {
 
     fetchDataFromApi(dataUrl)
       .then((res) => {
-        if(res.ok){
-          subscribe && setData(res);
-          setTimeout(()=>{setIsLoading(false)},5000);
-        }else{
-          setError("Something went Wrong!");
+        if (res.code === "ERR_NETWORK") {
           setIsLoading(false);
-
+          setError("Something went Wrong!");
+        }
+        if(subscribe){
+          setData(res);
+          setIsLoading(false);
         }
       })
       .catch((err) => {
-        setError("Something went Wrong!");
         setIsLoading(false);
+        setError("Something went Wrong!");
       })
 
     return () => {
