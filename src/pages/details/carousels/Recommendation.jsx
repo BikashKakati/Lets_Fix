@@ -4,10 +4,21 @@ import Carousel from "../../../components/carousels/Carousels";
 import useFetch from "../../../customHooks/useFetch";
 
 const Recommendation = ({ id }) => {
-    const { data, isLoading } = useFetch(`/movie/${id}/recommendations`);
+    const { data, isLoading, error } = useFetch(`/movie/${id}/recommendations`);
 
     return (
-        <Carousel data = {data} isLoading={isLoading} title="Recommendations"/>
+        <>
+            {!error && (
+                <React.Fragment>
+                    {
+                        !!data?.results?.length && <Carousel data={data} isLoading={isLoading} title="Recommendations" />
+                    }
+                </React.Fragment>
+            )
+
+            }
+        </>
+
     );
 };
 
