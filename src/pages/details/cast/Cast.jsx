@@ -23,7 +23,7 @@ const Cast = ({ data, isLoading }) => {
                 {!isLoading ? (
                     <div className="listItems">
                         {data?.map((item) => {
-                            let imgUrl = item.profile_path ? `https://image.tmdb.org/t/p/original${item.profile_path}`: avatar;
+                            let imgUrl = item.profile_path ? `https://image.tmdb.org/t/p/original${item.profile_path}` : avatar;
                             return (
                                 <div key={item.id} className="listItem">
                                     <div className="profileImg">

@@ -24,21 +24,21 @@ const Footer = () => {
                 </div>
                 <div className="socialIcons">
                     <span className="icon">
-                    <i className="fa-brands fa-facebook-f"></i>
+                        <i className="fa-brands fa-facebook-f"></i>
                     </span>
                     <span className="icon">
-                    <i className="fa-brands fa-instagram"></i>
+                        <i className="fa-brands fa-instagram"></i>
                     </span>
                     <span className="icon">
-                    <i className="fa-brands fa-twitter"></i>
+                        <i className="fa-brands fa-twitter"></i>
                     </span>
                     <span className="icon">
-                    <i className="fa-brands fa-linkedin"></i>
+                        <i className="fa-brands fa-linkedin"></i>
                     </span>
                 </div>
 
             </div>
-            
+
         </footer>
     );
 };

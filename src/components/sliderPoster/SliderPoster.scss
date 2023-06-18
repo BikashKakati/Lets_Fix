@@ -3,14 +3,6 @@
 .slider-poster {
     width: 100vw;
     margin-bottom: 8rem;
-    .wrapper{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        .netError-img{
-            width: 43rem;
-        }
-    }
 
     @include mobile {
 
@@ -18,6 +10,42 @@
         margin-top: 6rem;
     }
 }
+
+.netError-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+    .netError-img {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 25rem;
+            opacity: 0.5;
+
+            @include mobile {
+                width: 15rem;
+            }
+        }
+
+        .netError-text {
+            font-size: 2.5rem;
+            color: $grey;
+        }
+
+        .sub-text {
+            white-space: nowrap;
+            font-size: 1.5rem;
+            color: $grey;
+
+        }
+    }
+}
+
 
 
 .poster-container {
@@ -36,7 +64,7 @@
         justify-content: center;
         height: 100%;
         width: 100%;
-        background: linear-gradient(180deg, rgba(0,0,0, 0.6) 0%,#111 80%);
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, #111 80%);
 
         @include tablet {
             gap: 0;

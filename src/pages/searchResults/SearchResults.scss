@@ -4,17 +4,22 @@
     min-height: 70rem;
     padding-top: 10rem;
 
-        .resultNotFound {
-            font-size: 2.4rem;
-            width: 40rem;
-            color: $grey;
-            display: flex;
-            margin: auto;
-            flex-direction: column ;
-            span{
-                text-align: center;
-            }
+    .resultNotFound {
+        font-size: 2.5rem;
+        width: 40rem;
+        color: $grey;
+        display: flex;
+        margin: auto;
+        flex-direction: column;
+
+        span {
+            text-align: center;
         }
+
+        @include mobile {
+            width: 25rem;
+        }
+    }
 
     .pageTitle {
         font-size: 2.4rem;
@@ -22,6 +27,7 @@
         color: $white;
         margin-bottom: 2.5rem;
     }
+
     .content {
         display: flex;
         flex-flow: row wrap;
@@ -29,9 +35,11 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 5rem;
-        @include mobile{
+
+        @include mobile {
             gap: 1rem;
         }
+
         .movieCard {
             .posterBlock {
                 margin-bottom: 2rem;

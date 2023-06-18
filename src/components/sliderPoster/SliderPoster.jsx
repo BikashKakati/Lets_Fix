@@ -5,7 +5,7 @@ import { Autoplay, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.css'
 import FallbackImg from '../../assets/no-poster.png'
-import networkError from '../../assets/networkError.png'
+import networkError from '../../assets/networkerror.png'
 
 import './SliderPoster.scss';
 import useFetch from '../../customHooks/useFetch'
@@ -20,14 +20,6 @@ const SliderPoster = () => {
     return (
         <div className="slider-poster">
             {
-                !!error &&
-                <div className="wrapper">
-                    <div className="netError-img">
-                        <img src={networkError} />
-                    </div>
-                </div>
-            }
-            {
                 isLoading ?
                     <div className={window.innerWidth <= 600 ? "skl-container skeleton" : "skl-container"}>
                         <div className="skl-about">
@@ -40,7 +32,21 @@ const SliderPoster = () => {
                         </div>
                     </div>
                     :
-                    <SlidingCarousel movieList={data?.results} />
+                    <>
+                        {
+                            !!error ?
+                                (
+                                    <div className="netError-box">
+                                        <div className="netError-img">
+                                            <img src={networkError} />
+                                            <span className="netError-text">You're Offline</span>
+                                            <p className='sub-text'>Check your network connection properly</p>
+                                        </div>
+                                    </div>)
+                                :
+                                <SlidingCarousel movieList={data?.results} />
+                        }
+                    </>
             }
         </div>
 
@@ -55,7 +61,7 @@ const SlidingCarousel = ({ movieList }) => {
             modules={[Navigation, Pagination, Autoplay]}
             slidesPerView={1}
             speed={2}
-            // autoplay={{ delay: 3000 }}
+            autoplay={{ delay: 3000 }}
             loop
             pagination
         >

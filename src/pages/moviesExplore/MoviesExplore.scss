@@ -6,124 +6,138 @@
 
     .wrapper {
 
+        .top-items {
+            width: 100%;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            .movie-typeText {
+                font-size: 3rem;
+                margin: 3rem;
+
+                @include tablet {
+                    margin: 1rem;
+                }
+            }
+
+            .action-box {
+                position: relative;
+                display: flex;
+                gap: 2rem;
+                align-items: center;
+                width: 65rem;
+                height: 4rem;
+                margin: 3rem;
+
+                @include tablet {
+                    margin: 1rem;
+                }
+
+                .sorting-box {
+                    background: $soft-black;
+                    color: $grey;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    height: 100%;
+                    padding: 0 2rem;
+                    width: calc(100% - (2rem + 65%));
+                    min-width: 8rem;
+                    border-radius: 2rem;
+                    overflow: hidden;
+                    position: relative;
+
+                    .sort-text {
+                        white-space: nowrap;
+                    }
+
+                    .fa-solid {
+                        position: absolute;
+                        right: 1rem;
+                        padding-left: .5rem;
+                    }
+                }
+
+                .sortingTypes-list {
+                    display: none;
+                    color: $black1;
+                    position: absolute;
+                    background: $white;
+                    min-height: 3rem;
+                    width: 35rem;
+                    bottom: 0px;
+                    transform: translateY(100%);
+                    border-radius: 0.7rem;
+                    z-index: 5;
+                    padding: 1rem 0;
+
+                    .type {
+                        padding: 1rem 2rem;
+
+                        &:hover {
+                            background: $grey;
+                        }
+                    }
+
+                    &.on {
+                        display: block;
+                    }
+
+                }
+
+
+                .search-box {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 65%;
+
+
+                    .text-area {
+                        color: $grey;
+                        background: $soft-black;
+                        padding: 1rem 2.2rem;
+                        width: 100%;
+                        font-size: 1.4rem;
+                        font-weight: 500;
+                        border-radius: 2rem;
+
+                        &::placeholder {
+                            color: $grey;
+                        }
+                    }
+                }
+            }
+        }
+
         .inner-container {
+            min-height: 100vh;
             width: 100%;
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
 
             @include mobile {
                 gap: 1rem;
             }
 
-            .top-items {
-                width: 100%;
-                margin-bottom: 2rem;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                flex-wrap: wrap;
-
-                .movie-typeText {
-                    font-size: 3rem;
-                    margin: 3rem;
-
-                    @include tablet {
-                        margin: 1rem;
-                    }
-                }
-
-                .action-box {
-                    position: relative;
-                    display: flex;
-                    gap: 2rem;
-                    align-items: center;
-                    width: 65rem;
-                    height: 4rem;
-                    margin: 3rem;
-                    @include tablet {
-                        margin: 1rem;
-                    }
-                    .sorting-box{
-                        background: $soft-black;
-                        color: $grey;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                        height: 100%;
-                        padding:0 2rem;
-                        width: calc(100% - (2rem + 65%));
-                        min-width: 8rem;
-                        border-radius: 2rem;
-                        overflow: hidden;
-                        position: relative;
-                        .sort-text{
-                            white-space: nowrap;
-                        }
-                        .fa-solid{
-                            position: absolute;
-                            right: 1rem;
-                            padding-left: .5rem;
-                        }
-                    }
-                    .sortingTypes-list{
-                        display: none;
-                        color: $black1;
-                        position: absolute;
-                        background: $white;
-                        min-height: 3rem;
-                        width: 35rem;
-                        bottom: 0px;
-                        transform: translateY(100%);
-                        border-radius: 0.7rem;
-                        z-index: 5;
-                        padding: 1rem 0;
-                        .type{
-                           padding: 1rem 2rem ;
-                           &:hover{
-                            background: $grey;
-                           }
-                        }
-                        &.on{
-                            display: block;
-                        }
-                        
-                    }
-
-
-                    .search-box {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        width: 65%;
-
-
-                        .text-area {
-                            color: $grey;
-                            background: $soft-black;
-                            padding: 1rem 2.2rem;
-                            width: 100%;
-                            font-size: 1.4rem;
-                            font-weight: 500;
-                            border-radius: 2rem;
-                            &::placeholder{
-                                color: $grey;
-                            }
-                        }
-                    }
-                }
 
 
 
-
-            }
 
             .no-resultImg {
                 width: 40rem;
-                .noResult-text{
+
+                @include mobile {
+                    width: 25rem;
+                }
+
+                .noResult-text {
                     display: block;
                     font-size: 2.5rem;
                     color: $grey;
@@ -131,5 +145,7 @@
                 }
             }
         }
+
+
     }
 }

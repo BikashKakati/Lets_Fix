@@ -15,21 +15,21 @@ const MovieList = () => {
     const { type } = useParams();
     const { data, isLoading, error } = useFetch(`/movie/${type ? type : popular}`);
     const [inputData, setInputData] = useState("");
-    const [sortCallback, setSortCallback] = useState(()=> ()=> {});
+    const [sortCallback, setSortCallback] = useState(() => () => { });
 
-    useEffect(()=>{
+    useEffect(() => {
         setMovieData(data?.results);
-    },[data])
+    }, [data])
 
     let getFilterData = movieData?.filter(movie => {
         return movie?.original_title?.toLowerCase().includes(inputData.toLowerCase())
     })
 
-    const handleSortingMenu = () =>{
+    const handleSortingMenu = () => {
         document.querySelector(".sortingTypes-list").classList.toggle("on")
     }
-    document.querySelectorAll(".type").forEach(type =>{
-        type.onclick =()=>{
+    document.querySelectorAll(".type").forEach(type => {
+        type.onclick = () => {
             document.querySelector(".sorting-box .sort-text").innerText = type.innerText
         }
     })
@@ -40,27 +40,27 @@ const MovieList = () => {
         <div className='movielist-container'>
             <div className="wrapper">
 
-                <div className="inner-container">
-                    <div className="top-items">
-                        <h4 className="movie-typeText">{(type ? type : "").toUpperCase()} </h4>
-                        <div className="action-box" >
-                            <div className="sorting-box" onClick={handleSortingMenu}>
-                                <span className='sort-text'>sort</span>
-                                <i className="fa-solid fa-chevron-down"></i>
-                            </div>
-                            <ul className="sortingTypes-list">
-                                <li className="type" onClick={()=>setSortCallback(()=>() => {})}>Remove Sorting</li>
-                                <li className="type" onClick={()=>setSortCallback(()=>(a,b) => a.vote_average - b.vote_average)}>Rating Ascending</li>
-                                <li className="type" onClick={()=>setSortCallback(()=>(a,b) => b.vote_average - a.vote_average)}>Rating Descending</li>
-                                <li className="type" onClick={()=>setSortCallback(()=>(a,b) => a.original_title.localeCompare(b.original_title))}>A-Z</li>
-                                <li className="type" onClick={()=>setSortCallback(()=>(a,b) => b.original_title.localeCompare(a.original_title))}>Z-A</li>
-                            </ul>
-                            <div className="search-box">
-                                <input type="search" placeholder='search...' className='text-area' value={inputData} onChange={(e) => setInputData(e.target.value)} />
-                            </div>
+                <div className="top-items">
+                    <h4 className="movie-typeText">{type === "popular" ? "Most Popular" :type === "top_rated" ? "Top Rated" : "Upcoming"} </h4>
+                    <div className="action-box" >
+                        <div className="sorting-box" onClick={handleSortingMenu}>
+                            <span className='sort-text'>sort</span>
+                            <i className="fa-solid fa-chevron-down"></i>
                         </div>
-
+                        <ul className="sortingTypes-list">
+                            <li className="type" onClick={() => setSortCallback(() => () => { })}>Remove Sorting</li>
+                            <li className="type" onClick={() => setSortCallback(() => (a, b) => a.vote_average - b.vote_average)}>Rating Ascending</li>
+                            <li className="type" onClick={() => setSortCallback(() => (a, b) => b.vote_average - a.vote_average)}>Rating Descending</li>
+                            <li className="type" onClick={() => setSortCallback(() => (a, b) => a.original_title.localeCompare(b.original_title))}>A-Z</li>
+                            <li className="type" onClick={() => setSortCallback(() => (a, b) => b.original_title.localeCompare(a.original_title))}>Z-A</li>
+                        </ul>
+                        <div className="search-box">
+                            <input type="search" placeholder='search...' className='text-area' value={inputData} onChange={(e) => setInputData(e.target.value)} />
+                        </div>
                     </div>
+
+                </div>
+                <div className="inner-container">
                     {
 
                         !!getFilterData?.length ?

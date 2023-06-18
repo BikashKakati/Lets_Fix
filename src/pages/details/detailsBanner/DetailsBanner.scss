@@ -1,14 +1,17 @@
 @use '../../../scss/' as *;
+
 .detailsBanner {
     width: 100%;
     background-color: $black1;
     padding-top: 12rem;
     margin-bottom: 0;
     min-height: 70rem;
+
     @include mobile {
         margin-bottom: 5rem;
         padding-top: 10rem;
     }
+
     .backdrop-img {
         width: 100%;
         height: 100%;
@@ -17,9 +20,11 @@
         left: 0;
         opacity: 0.1;
         overflow: hidden;
+
         .lazy-load-image-background {
             width: 100%;
             height: 100%;
+
             img {
                 width: 100%;
                 height: 100%;
@@ -28,10 +33,11 @@
             }
         }
     }
+
     .opacity-layer {
         width: 100%;
         height: 10;
-        background: linear-gradient(180deg, rgba(0,0,0, 0.6) 0%, $black1 80%);
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, $black1 80%);
         position: absolute;
         bottom: 0;
         left: 0;
@@ -42,107 +48,130 @@
         position: relative;
         flex-direction: row;
         gap: 5rem;
+
         @include mobile {
             gap: 2.5rem;
             flex-direction: column;
-            
+
         }
+
         .left {
             flex-shrink: 0;
+
             .posterImg {
                 width: 100%;
                 display: block;
                 border-radius: 1.2rem;
                 max-width: 35rem;
-                @include mobile {
-                }
+
+                @include mobile {}
             }
         }
+
         .right {
             color: $white;
+
             .title {
                 font-size: 3.4rem;
                 line-height: 4.4rem;
+
                 @include mobile {
                     font-size: 2.8rem;
                     line-height: 4rem;
                 }
             }
+
             .subtitle {
                 font-size: 2rem;
                 line-height: 2.8rem;
                 margin-bottom: 1.5rem;
                 font-style: italic;
                 opacity: 0.5;
+
                 @include mobile {
                     font-size: 1.6rem;
                     line-height: 2.4rem;
                 }
             }
+
             .genres {
                 margin-bottom: 2.5rem;
                 flex-flow: row wrap;
             }
+
             .overview {
                 margin-bottom: 2.5rem;
+
                 .heading {
                     font-size: 2.4rem;
                     margin-bottom: 1rem;
                 }
+
                 .description {
                     line-height: 2.4rem;
                     padding-right: 10rem;
+
                     @include mobile {
                         padding-right: 0;
                     }
                 }
             }
+
             .circleRating {
                 max-width: 9rem;
+
                 @include mobile {
                     max-width: 7rem;
                 }
             }
+
             .playbtn {
                 display: flex;
                 align-items: center;
                 gap: 2rem;
                 cursor: pointer;
-                .fa.fa-play{
+
+                .fa.fa-play {
                     font-size: 5rem;
                     transition: all 0.4s ease-in-out;
                 }
+
                 .text {
                     font-size: 2rem;
                     transition: all 0.4s ease-in-out;
                 }
 
                 &:hover {
-                    .fa.fa-play{
+                    .fa.fa-play {
                         font-size: 6rem;
                         color: $red;
                     }
+
                     .text {
                         color: $red;
                     }
                 }
             }
-            .card-favourite{
+
+            .card-favourite {
                 font-size: 4rem;
                 margin-left: .5rem;
                 display: flex;
                 align-items: center;
                 transition: all $transition;
-                .favorite-text{
+
+                .favorite-text {
                     font-size: 2rem;
                     margin-left: 2rem;
                 }
-                &.on{
+
+                &.on {
                     transform: rotate(360deg);
                     font-size: 5rem;
                     color: $red;
                 }
             }
+
             .row {
                 display: flex;
                 align-items: center;
@@ -154,15 +183,18 @@
                 border-bottom: 1px solid $grey;
                 padding: 1.5rem 0;
                 display: flex;
+
                 .infoItem {
                     margin-right: 1rem;
                     display: flex;
                     flex-flow: row wrap;
                 }
+
                 .text {
                     margin-right: 1rem;
                     opacity: 0.5;
                     line-height: 2.4rem;
+
                     &.bold {
                         font-weight: 600;
                         opacity: 1;
@@ -174,15 +206,17 @@
 
     .detailsBannerSkeleton {
         position: relative;
-        
-        .wrapper{
+
+        .wrapper {
             display: flex;
             flex-direction: row;
             gap: 5rem;
+
             @include mobile {
                 gap: 2.5rem;
                 flex-direction: column;
             }
+
             .left {
                 flex-shrink: 0;
                 width: 100%;
@@ -190,20 +224,24 @@
                 border-radius: 1.2rem;
                 aspect-ratio: 1/1.5;
                 max-width: 35rem;
-                @include mobile {
-                }
+
+                @include mobile {}
             }
+
             .right {
                 width: 100%;
+
                 .row {
                     width: 100%;
                     height: 2.5rem;
                     margin-bottom: 2rem;
                     border-radius: 5rem;
+
                     &:nth-child(2) {
                         width: 75%;
                         margin-bottom: 5rem;
                     }
+
                     &:nth-child(5) {
                         width: 50%;
                         margin-bottom: 5rem;

@@ -10,10 +10,11 @@ const Navbar = () => {
   const [query, setQuery] = useState("");
   const Navigate = useNavigate();
 
-  const searchQuery = (e) =>{
-     if(e.key === "Enter" && !!query){
-        Navigate(`/search/${query}`)
-     }
+  const searchQuery = (e) => {
+    if (e.key === "Enter" && !!query) {
+      Navigate(`/search/${query}`)
+      setQuery("")
+    }
   }
 
   return (
@@ -26,15 +27,15 @@ const Navbar = () => {
             <h1 className="logo"><span className="logo-colorWhite">Lets</span>Fix</h1>
           </div>
         </Link>
-        
+
         <div className="input-box">
 
           <i className="fa fa-search" aria-hidden="true" onClick={() => { menuOn && setMenuOn(!menuOn); setSearchOn(!searchOn); }}></i>
 
-          <input type="text" className={searchOn ? "input-area on" : "input-area"} placeholder='search movies here....' value={query} onChange = {(e)=>{setQuery(e.target.value)}} onKeyUp={searchQuery}/>
+          <input type="text" className={searchOn ? "input-area on" : "input-area"} placeholder='search movies here....' value={query} onChange={(e) => { setQuery(e.target.value) }} onKeyUp={searchQuery} />
         </div>
 
-        <ul className={menuOn ? "categories on" : "categories"} onClick={()=>{setMenuOn(!menuOn)}}>
+        <ul className={menuOn ? "categories on" : "categories"} onClick={() => { setMenuOn(!menuOn) }}>
           <li className="cat-type"><Link to="/explore/popular">Popular</Link></li>
           <li className="cat-type"><Link to="/explore/top_rated">Top Rated</Link></li>
           <li className="cat-type"><Link to="/explore/upcoming">Upcoming</Link></li>
