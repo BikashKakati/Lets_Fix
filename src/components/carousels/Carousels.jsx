@@ -20,8 +20,8 @@ const CategorySlider = ({ data, isLoading, title, endPoint }) => {
 
             <div className="wrapper">
                 <div className="title-box">
-                    <h4 className='cat-type'>{data && title}</h4>
-                    {data && <button className='btn' onClick={() => { Navigate(`/explore/${endPoint && endPoint}`) }}>  View More </button>}
+                    <h4 className='cat-type'>{title && title}</h4>
+                    {endPoint && <button className='btn' onClick={() => { Navigate(`/explore/${endPoint && endPoint}`) }}>  View More </button>}
 
 
                 </div>

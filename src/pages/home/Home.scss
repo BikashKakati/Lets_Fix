@@ -1,14 +1,15 @@
 @use '../../scss/' as *;
+
 .swiper {
 
     .swiper-button-prev,
     .swiper-button-next {
         color: $white;
-        padding: 3rem ;
+        padding: 3rem;
         border-radius: 50%;
         background: $transparent;
 
-        @include mobile{
+        @include mobile {
             display: none;
         }
     }

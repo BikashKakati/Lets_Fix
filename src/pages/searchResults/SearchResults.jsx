@@ -9,7 +9,7 @@ import Cards from "../../components/cards/Cards";
 import Spinner from "../../components/spinner/Spinner";
 import noResults from "../../assets/no-results.png";
 
-const SearchResults = () =>{
+const SearchResults = () => {
     const [data, setData] = useState(null);
     const [pageNum, setPageNum] = useState(1);
     const [loading, setLoading] = useState(false);
@@ -18,25 +18,27 @@ const SearchResults = () =>{
     const fetchInitialData = () => {
         setLoading(true);
         fetchDataFromApi(`/search/multi?query=${query}&page=${pageNum}`)
-        .then((res) => {
+            .then((res) => {
                 setData(res);
                 setPageNum((prev) => prev + 1);
                 setLoading(false);
             }
-        );
+            );
     };
 
     const fetchNextPageData = () => {
         fetchDataFromApi(`/search/multi?query=${query}&page=${pageNum}`)
-        .then((res) => {
-                if (data?.results) {setData({...data, results: [...data?.results, ...res.results],
-                });
+            .then((res) => {
+                if (data?.results) {
+                    setData({
+                        ...data, results: [...data?.results, ...res.results],
+                    });
                 } else {
                     setData(res);
                 }
                 setPageNum((prev) => prev + 1);
             }
-        );
+            );
     };
 
     useEffect(() => {
@@ -44,8 +46,8 @@ const SearchResults = () =>{
         fetchInitialData();
     }, [query]);
 
-    
-    return(
+
+    return (
         <div className="searchResultsPage">
             {loading && <Spinner initial={true} />}
             {!loading && (
@@ -53,11 +55,10 @@ const SearchResults = () =>{
                     {data?.results?.length > 0 ? (
                         <>
                             <div className="pageTitle">
-                                {`Search ${
-                                    data?.total_results > 1
+                                {`Search ${data?.total_results > 1
                                         ? "results"
                                         : "result"
-                                } of '${query}'`}
+                                    } of '${query}'`}
                             </div>
                             <InfiniteScroll
                                 className="content"
@@ -79,14 +80,14 @@ const SearchResults = () =>{
                         </>
                     ) : (
                         <div className="resultNotFound">
-                            <img src = {noResults}/>
+                            <img src={noResults} />
                             <span>Sorry, Results not found!</span>
                         </div>
                     )}
                 </div>
             )}
         </div>
-        
+
     )
 }
 

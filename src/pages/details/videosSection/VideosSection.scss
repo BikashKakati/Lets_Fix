@@ -3,11 +3,13 @@
 .videosSection {
     position: relative;
     margin-bottom: 5rem;
+
     .sectionHeading {
         font-size: 2.4rem;
         color: $white;
         margin-bottom: 2.5rem;
     }
+
     .videos {
         display: flex;
         overflow-x: auto;
@@ -15,29 +17,35 @@
         gap: 2rem;
         margin: 0;
         padding: 0;
+
         @include mobile {
             margin-right: -2rem;
             margin-left: -2rem;
             padding: 0 2rem;
             gap: 1rem;
         }
+
         .videoItem {
             width: 25%;
             flex-shrink: 0;
             cursor: pointer;
+
             @include mobile {
                 width: 24rem;
             }
+
             .videoThumbnail {
                 margin-bottom: 1.5rem;
                 position: relative;
+
                 img {
                     width: 100%;
                     display: block;
                     border-radius: 1.2rem;
                     transition: all 0.7s ease-in-out;
                 }
-                .fa.fa-play{
+
+                .fa.fa-play {
                     position: absolute;
                     top: 40%;
                     left: 50%;
@@ -45,19 +53,23 @@
                     font-size: 3rem;
                     transition: all 0.7s ease-in-out;
                 }
+
                 &:hover {
                     img {
                         opacity: 0.5;
                     }
-                    .fa.fa-play{
+
+                    .fa.fa-play {
                         color: $red;
                     }
                 }
             }
+
             .videoTitle {
                 color: white;
                 font-size: 1.6rem;
                 line-height: 2.4rem;
+
                 @include mobile {
                     font-size: 1.4rem;
                     line-height: 2rem;
@@ -72,30 +84,36 @@
         gap: 2rem;
         margin: 0;
         padding: 0;
+
         @include mobile {
             gap: 1rem;
             margin-right: -2rem;
             margin-left: -2rem;
             padding: 0 2rem;
         }
+
         .skItem {
             width: 25%;
             flex-shrink: 0;
+
             @include mobile {
                 width: 15rem;
             }
+
             .thumb {
                 width: 100%;
                 aspect-ratio: 16 / 9;
                 border-radius: 1.2rem;
                 margin-bottom: 1rem;
             }
+
             .row {
                 height: 2rem;
                 width: 100%;
                 border-radius: 1rem;
                 margin-bottom: 1rem;
             }
+
             .row2 {
                 height: 2rem;
                 width: 75%;

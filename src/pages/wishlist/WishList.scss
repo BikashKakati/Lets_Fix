@@ -6,7 +6,23 @@
 
     .wrapper {
 
+        .top-items {
+            width: 100%;
+            margin-bottom: 2rem;
+
+            .movie-typeText {
+                font-size: 3rem;
+                margin: 3rem;
+
+                @include tablet {
+                    margin: 1rem;
+                }
+            }
+
+        }
+
         .inner-container {
+            min-height: 100vh;
             width: 100%;
             display: flex;
             flex-wrap: wrap;
@@ -14,26 +30,19 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            @include mobile{
+
+            @include mobile {
                 gap: 1rem;
             }
 
-            .top-items {
-                width: 100%;
-                margin-bottom: 2rem;
+            .no-resultImg {
+                width: 40rem;
 
-                .movie-typeText {
-                    font-size: 3rem;
-                    margin: 3rem;
-                    @include tablet{
-                        margin: 1rem;
-                    }
+                @include mobile {
+                    width: 25rem;
                 }
 
-            }
-            .no-resultImg{
-                width: 40rem;
-                .noResult-text{
+                .noResult-text {
                     display: block;
                     font-size: 2.5rem;
                     color: $grey;

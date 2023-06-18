@@ -3,10 +3,12 @@
 .swiper {
     .swiper-slide {
         width: 18%;
-        @include tablet{
+
+        @include tablet {
             width: 24%;
         }
-        @include mobile{
+
+        @include mobile {
             width: 37%;
         }
     }
@@ -23,52 +25,64 @@
             align-items: center;
             justify-content: space-between;
             margin-bottom: 2rem;
-            .cat-type{
-               font-size: 3rem;
-               @include mobile{
-                font-size: 2.4rem;
-               }
+
+            .cat-type {
+                font-size: 3rem;
+
+                @include mobile {
+                    font-size: 2.4rem;
+                }
             }
-            .btn{
+
+            .btn {
                 font-size: 1.7rem;
-                @include mobile{
+
+                @include mobile {
                     font-size: 1.3rem;
                 }
             }
         }
-        .card-box{
+
+        .card-box {
             max-width: unset;
             height: unset;
-            .card-imgBox{
+
+            .card-imgBox {
                 height: unset;
             }
+
             .card-aboutBox {
                 color: $white;
-                .card-textBox{
-                    @include mobile{
+
+                .card-textBox {
+                    @include mobile {
                         display: flex;
                         flex-direction: column;
                     }
-                    .movie-title{
+
+                    .movie-title {
                         margin-bottom: .5rem;
                         font-size: 1.47rem;
                         font-weight: 600;
-                        @include mobile{
+
+                        @include mobile {
                             font-size: 1.2rem;
                             font-weight: 500;
                         }
                     }
-                    .rel-date{
+
+                    .rel-date {
                         font-weight: 300;
                         margin-right: 1.3rem;
-                        @include mobile{
+
+                        @include mobile {
                             font-size: 1.1rem;
-                            
+
                         }
-            
+
                     }
                 }
-        
+
             }
         }
     }

@@ -9,12 +9,12 @@ const Home = () => {
 
 
 
-    return(
+    return (
         <>
-        <SliderPoster/>
-        <CategoryType title = "Top Rated"  endPoint="top_rated"/>
-        <CategoryType title = "Most Popular"  endPoint="popular"/>
-        <CategoryType title = "Upcoming"  endPoint="upcoming"/>
+            <SliderPoster />
+            <CategoryType title="Top Rated" endPoint="top_rated" />
+            <CategoryType title="Most Popular" endPoint="popular" />
+            <CategoryType title="Upcoming" endPoint="upcoming" />
         </>
     )
 

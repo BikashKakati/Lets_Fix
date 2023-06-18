@@ -1,18 +1,18 @@
 @use "../../scss/" as *;
 .pageNotFound {
-    height: 700px;
-    padding-top: 200px;
+    height: 70rem;
+    padding-top: 20rem;
     .wrapper{
         text-align: center;
         color: $soft-black;
         display: flex;
         flex-direction: column;
         .bigText {
-            font-size: 150px;
+            font-size: 15rem;
             font-weight: 700;
         }
         .smallText {
-            font-size: 44px;
+            font-size: 4.4rem;
         }
     }
 }

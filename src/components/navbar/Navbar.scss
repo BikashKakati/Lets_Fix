@@ -1,4 +1,3 @@
-
 @use "../../scss/" as *;
 
 .navbar {
@@ -57,7 +56,7 @@
         position: absolute;
         left: 2rem;
 
-        @include mobile  {
+        @include mobile {
             font-size: 2rem;
             left: auto;
             right: 8rem;
@@ -72,7 +71,7 @@
         border-radius: 4rem;
         color: $white;
 
-        @include mobile  {
+        @include mobile {
             padding: 1.5rem 4.5rem;
             z-index: 10;
             position: absolute;
@@ -90,7 +89,7 @@
     }
 
     .input-area.on {
-        @include mobile  {
+        @include mobile {
             right: 1rem;
         }
     }
@@ -120,8 +119,9 @@
     .cat-type {
         margin-right: 5rem;
         white-space: nowrap;
-        a{
-            &:hover{
+
+        a {
+            &:hover {
                 color: $red;
             }
         }

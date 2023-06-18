@@ -8,20 +8,20 @@ import './Cards.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { add, remove } from '../../store/wishlistSlice';
 
-const Cards = ({ movieData}) => {
-  
+const Cards = ({ movieData }) => {
+
   const dispatch = useDispatch();
-  const {wishList} =useSelector((state)=>state.wishList);
+  const { wishList } = useSelector((state) => state.wishList);
 
   const isFavorite = wishList.some((favMovieCard) => favMovieCard.id === movieData.id);
 
-  
+
   const posterImgLink = movieData?.poster_path ? `https://image.tmdb.org/t/p/original${movieData.poster_path}` : fallbackImg;
 
-  const handleToggleFavorite = () =>{
-    if(isFavorite){
+  const handleToggleFavorite = () => {
+    if (isFavorite) {
       dispatch(remove(movieData));
-    }else{
+    } else {
       dispatch(add(movieData));
     }
   }
@@ -42,12 +42,12 @@ const Cards = ({ movieData}) => {
       <div className="card-aboutBox">
 
         <div className="card-textBox">
-        <h4 className="movie-title">{movieData ? movieData.original_title : ""}</h4>
-        <span className="rel-date">{movieData ? movieData.release_date : ""}</span>
+          <h4 className="movie-title">{movieData ? movieData.original_title : ""}</h4>
+          <span className="rel-date">{movieData ? movieData.release_date : ""}</span>
 
         </div>
-        <div className={isFavorite ? "card-favourite on": "card-favourite"} onClick={handleToggleFavorite}>
-        <i className="fa-solid fa-heart"></i>
+        <div className={isFavorite ? "card-favourite on" : "card-favourite"} onClick={handleToggleFavorite}>
+          <i className="fa-solid fa-heart"></i>
         </div>
       </div>
     </div>

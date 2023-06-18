@@ -17,20 +17,20 @@ const DetailsBanner = ({ video, crew }) => {
 
     const { id: movieId } = useParams();
     const dispatch = useDispatch();
-    const {wishList} = useSelector((state) => state.wishList);
-    
-    const { data, isLoading } = useFetch(`/movie/${movieId}`);
+    const { wishList } = useSelector((state) => state.wishList);
+
+    const { data, isLoading, error } = useFetch(`/movie/${movieId}`);
 
     const isFavorite = wishList.some((favMovie) => favMovie.id.toString() === movieId);
 
-    const handleToggleFavorite = () =>{
-        if(isFavorite){
+    const handleToggleFavorite = () => {
+        if (isFavorite) {
             dispatch(remove(data));
-        }else{
+        } else {
             dispatch(add(data));
         }
     }
-    
+
 
 
     const director = crew?.filter((f) => f.job === "Director");
@@ -51,16 +51,16 @@ const DetailsBanner = ({ video, crew }) => {
                     {!!data && (
                         <React.Fragment>
                             <div className="backdrop-img">
-                                <Img src={`https://image.tmdb.org/t/p/original${data ? data.backdrop_path : ""}`} />
+                                <Img src={`https://image.tmdb.org/t/p/original${data ? data?.backdrop_path : ""}`} />
                             </div>
                             <div className="opacity-layer"></div>
                             <div className="wrapper">
                                 <div className="content">
                                     <div className="left">
-                                        {data.poster_path ? (
+                                        {data?.poster_path ? (
                                             <Img
                                                 className="posterImg"
-                                                src={`https://image.tmdb.org/t/p/original${data ? data.poster_path : ""}`}
+                                                src={`https://image.tmdb.org/t/p/original${data ? data?.poster_path : ""}`}
                                             />
                                         ) : (
                                             <Img
@@ -71,11 +71,11 @@ const DetailsBanner = ({ video, crew }) => {
                                     </div>
                                     <div className="right">
                                         <div className="title">
-                                            {`${data.name || data.title
-                                                } (${data?.release_date})`}
+                                            {`${!!data?.title ? data?.title : "Title"
+                                                } (${!!data?.release_date ? data?.release_date : "Date"})`}
                                         </div>
                                         <div className="subtitle">
-                                            {data.tagline}
+                                            {data?.tagline}
                                         </div>
 
 
@@ -84,12 +84,12 @@ const DetailsBanner = ({ video, crew }) => {
                                                 Overview
                                             </div>
                                             <div className="description">
-                                                {data.overview}
+                                                {data?.overview}
                                             </div>
                                         </div>
                                         <div className="row">
                                             <CircleRating
-                                                rating={data.vote_average.toFixed(
+                                                rating={data?.vote_average?.toFixed(
                                                     1
                                                 )}
                                             />
@@ -121,24 +121,24 @@ const DetailsBanner = ({ video, crew }) => {
                                                     </span>
                                                 </div>
                                             )}
-                                            {data.release_date && (
+                                            {data?.release_date && (
                                                 <div className="infoItem">
                                                     <span className="text bold">
                                                         Release Date:{" "}
                                                     </span>
                                                     <span className="text">
-                                                        {data.release_date}
+                                                        {data?.release_date}
                                                     </span>
                                                 </div>
                                             )}
-                                            {data.runtime && (
+                                            {data?.runtime && (
                                                 <div className="infoItem">
                                                     <span className="text bold">
                                                         Runtime:{" "}
                                                     </span>
                                                     <span className="text">
                                                         {toHoursAndMinutes(
-                                                            data.runtime
+                                                            data?.runtime
                                                         )}
                                                     </span>
                                                 </div>
@@ -212,7 +212,8 @@ const DetailsBanner = ({ video, crew }) => {
                                 />
                             </div>
                         </React.Fragment>
-                    )}
+                    )
+                    }
                 </>
             ) : (
                 <div className="detailsBannerSkeleton">
