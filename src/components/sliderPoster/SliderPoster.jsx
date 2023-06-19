@@ -5,7 +5,7 @@ import { Autoplay, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.css'
 import FallbackImg from '../../assets/no-poster.png'
-import networkError from '../../assets/networkerror.png'
+import networkError from '../../assets/networkError.png'
 
 import './SliderPoster.scss';
 import useFetch from '../../customHooks/useFetch'
