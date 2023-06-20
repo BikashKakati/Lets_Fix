@@ -39,6 +39,7 @@ This is a best web app for movie lovers. This Web app is designed to provide an 
 - Responsive design for optimal viewing on different devices.
 
 ## Preview
+### In Laptop or PC
 <h3 align ="center" >Home Page</h3>
 <div align= "center"><img src="https://github.com/BikashKakati/Lets_Fix/assets/118715700/3f77966a-49a6-4d10-85c0-aa39be691705"/><div>
 <h3>Movies Explore Pages</h3>
@@ -50,6 +51,8 @@ This is a best web app for movie lovers. This Web app is designed to provide an 
 <div align= "center"><img src="https://github.com/BikashKakati/Lets_Fix/assets/118715700/aa44f599-f27f-42c3-94f7-c575da83339d"/><div>
 <h3>Search Result Page</h3>
 <div align= "center"><img src="https://github.com/BikashKakati/Lets_Fix/assets/118715700/eb079bcd-4494-4bbc-a55d-ec5d68be2ff5"/><div>
-
+<h3 align= "left">In Mobile</h3>
+<div align= "center"><img src="https://github.com/BikashKakati/Lets_Fix/assets/118715700/a608e363-3a51-41e2-80c7-860a0069d1a9"/><div>
+<div align= "center"><img src="https://github.com/BikashKakati/Lets_Fix/assets/118715700/50f83714-cd6b-42d2-8fad-bb70bab049e6"/><div>
 
 
