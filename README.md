@@ -4,10 +4,10 @@
 
 ## Table of content
 
-- About
-- Tools Used
-- Features
-- Preview
+* [About](#about)
+* [Tools Used](#tools-used)
+* [Features](#features)
+* [Preview](#preview)
 
 
 ## About 
