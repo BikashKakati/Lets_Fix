@@ -1,5 +1,5 @@
 # Lets_Fix
-<p>Welcome to my <b>Movie Streaming</b> web app repository! This repository contains the source code and assets for a movie streaming website built using React JS, SCSS, and powered by the TMDB API.</p>
+<p>Welcome to my web app repository for <b>Movie Streaming! </b>This repository provides the source code and asset information used to create the webapp. In a nutshell, this movie streaming website was developed with React JS, SCSS, and is driven by the TMDB API.</p>
 <p>For live demo visit at👉 <a href = "https://letsfix.netlify.app/"><b>Lets Fix</b></a></p>
 
 ## Table of content
